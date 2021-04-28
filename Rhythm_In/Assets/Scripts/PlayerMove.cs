@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
-    float maxSpeed;
+    private float maxSpeed;
+    [SerializeField]
+    private float jumpPower;
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
     Animator anim;
+    private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
     void Awake()
     {
@@ -19,6 +22,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        //Jump
+        if (Input.GetButton("Jump"))
+        {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            anim.SetBool(IsJumping, true);
+        }
+        
         //방향키에서 손을 떼면 극적으로 스탑
         if (Input.GetButtonUp("Horizontal"))
         {
@@ -45,10 +55,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Move Speed
         float h = Input.GetAxisRaw("Horizontal");
 
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         
+        //Max Speed
         if(rigid.velocity.x > maxSpeed)
         {
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
@@ -56,6 +68,16 @@ public class PlayerMove : MonoBehaviour
         else if (rigid.velocity.x < (maxSpeed * -1f) )
         {
             rigid.velocity = new Vector2((maxSpeed * -1f), rigid.velocity.y);
+        }
+        
+        //Landing Platform
+        Debug.DrawRay(rigid.position, Vector3.down, Color.green);
+
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1);
+
+        if (rayHit.collider != null)
+        {
+            Debug.Log(rayHit.collider.name);
         }
     }
 }
