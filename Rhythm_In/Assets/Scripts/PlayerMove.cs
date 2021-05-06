@@ -1,16 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
-    private float maxSpeed;
+    private float moveSpeed=10f;
     [SerializeField]
     private float jumpPower;
+
+    public GameManager GM;
+    
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
     Animator anim;
+    
+    
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
 
     void Awake()
@@ -20,6 +26,16 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        Vector2 direction = new Vector2(1f, 0f);
+        rigid.position += direction * (moveSpeed * Time.deltaTime);
+        GM.CreateMap();
+    }
+
+    
+    
+    /*
     private void Update()
     {
         //Jump
@@ -51,7 +67,9 @@ public class PlayerMove : MonoBehaviour
             anim.SetBool("isRun", true);
         }
     }
-
+    */
+    
+    /*
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -80,4 +98,5 @@ public class PlayerMove : MonoBehaviour
             Debug.Log(rayHit.collider.name);
         }
     }
+    */
 }
