@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed=10f;
+    private float moveSpeed = 10f;
     [SerializeField]
     private float jumpPower;
     public GameManager GM;
@@ -45,6 +45,19 @@ public class PlayerMove : MonoBehaviour
         else
             anim.SetBool(IsRun, true);
 
+        RaycastHit2D rayOnEnemy = 
+            Physics2D.Raycast(rigid.position, Vector2.right, hitbox+2, LayerMask.GetMask("Enemy"));
+        
+        Debug.DrawRay(rigid.position, Vector2.right * (hitbox+2), new Color(1, 1, 1));
+
+        if (rayOnEnemy)
+        {
+            Time.timeScale = 0.5f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
         
         //공격 로직
         if(Input.GetKeyDown(KeyCode.X))
@@ -52,19 +65,20 @@ public class PlayerMove : MonoBehaviour
             anim.SetTrigger("doAttack1");
             
             //플레이어 포지션 기준으로 X축 방향으로 RAY를 쏴줌, Enemy에게만 맞도록 layer 설정
-            RaycastHit2D raycastHit2D = 
+            RaycastHit2D rayAttack = 
                 Physics2D.Raycast(rigid.position, Vector2.right, hitbox, LayerMask.GetMask("Enemy"));
+            
             Debug.DrawRay(rigid.position, Vector2.right * hitbox, new Color(1, 1, 1));
             
             //레이가 감지되면 맞은 오브젝트의 die 애니메이션 재생
             //콜라이더를 비활성화 시켜줌으로써 플레이어에게 피해 없음
             //애니메이션이 끝난 뒤(1초 뒤)에 오브젝트 삭제
-            if (raycastHit2D)
+            if (rayAttack)
             {
                 //Debug.Log(raycastHit2D.transform.name);
-                raycastHit2D.transform.GetComponent<Animator>().SetTrigger("doHitDie");
-                raycastHit2D.collider.enabled = false;
-                StartCoroutine(OnDestroyEnemy(raycastHit2D));
+                rayAttack.transform.GetComponent<Animator>().SetTrigger("doHitDie");
+                rayAttack.collider.enabled = false;
+                StartCoroutine(OnDestroyEnemy(rayAttack));
             }
         }
     }
@@ -78,7 +92,7 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         //이동
-        rigid.AddForce(Vector2.right * moveSpeed);
+        rigid.AddForce(Vector2.right * moveSpeed );
         
         //점프 & 더블 점프
         if (Input.GetButtonDown("Jump") && isDoubleJump < 2)
@@ -116,16 +130,16 @@ public class PlayerMove : MonoBehaviour
         
         int damDirc = 0;
         //플레이어 포지션과 enemy 포지션의 차를 이용해서 플레이어가 튕겨져 나갈 방향 계산
-        if ((transform.position.x - targetPos.x) > 0) damDirc = 1;
+        if ((transform.position.x - targetPos.x) > 0) damDirc = -1;
         else damDirc = -1;
-
+        
         //위 계산으로 나온 방향으로 플레이어에게 힘을 가함
         rigid.AddForce(new Vector2(damDirc, 0f) * 40f, ForceMode2D.Impulse);
         
         anim.SetTrigger("doDamaged");
         
-        //2초간 무적상태
-        Invoke("OffDamaged",2f);
+        //1초간 무적상태
+        Invoke("OffDamaged",1f);
     }
 
     //무적 판정
