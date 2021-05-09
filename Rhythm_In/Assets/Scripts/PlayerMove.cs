@@ -12,6 +12,10 @@ public class PlayerMove : MonoBehaviour
     private float jumpPower;
     public GameManager GM;
     public float hitbox;
+
+    public float x;
+    [SerializeField]
+    private float y;
     
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
@@ -30,6 +34,8 @@ public class PlayerMove : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
+
+
 
     //더블 점프 카운터
     private int isDoubleJump = 0;
@@ -81,6 +87,8 @@ public class PlayerMove : MonoBehaviour
                 StartCoroutine(OnDestroyEnemy(rayAttack));
             }
         }
+        
+        
     }
 
     IEnumerator OnDestroyEnemy(RaycastHit2D raycastHit2D)
@@ -112,6 +120,8 @@ public class PlayerMove : MonoBehaviour
         //더블 점프 카운트 초기화
         isDoubleJump = 0;
 
+        
+        
         if (other.transform.CompareTag("Enemy"))
         {
             OnDamaged(other.transform.position);
@@ -139,7 +149,7 @@ public class PlayerMove : MonoBehaviour
         anim.SetTrigger("doDamaged");
         
         //1초간 무적상태
-        Invoke("OffDamaged",1f);
+        Invoke("OffDamaged",3f);
     }
 
     //무적 판정
