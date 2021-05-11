@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        HealthGauge.health -= 10f;
+        GameManager.Instance.Health -= 10f;
     }
 }
