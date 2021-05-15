@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour
 
         
         //공격
-        if(Input.GetKeyDown(KeyCode.X) )
+        if(Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0) )
         {
             anim.SetTrigger("doAttack1");
             
