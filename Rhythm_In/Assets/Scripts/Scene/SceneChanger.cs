@@ -9,6 +9,9 @@ public class SceneChanger : MonoBehaviour
     private string nextSceneName;
     [SerializeField]
     private string useKey;
+    void Start()
+    {
+    }
     void Update()
     {
         // 씬 전환시 전환될 씬이랑 사용할 키 설정
@@ -17,4 +20,5 @@ public class SceneChanger : MonoBehaviour
             Application.LoadLevel(nextSceneName);
         }
     }
+
 }
