@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,20 +14,21 @@ public class GameManager : MonoBehaviour
     // 이미 게임매니저가 static으로 선언된 클래스이기 때문에 health변수는 static으로 선언할 필요 없음.
     // health는 플레이어의 체력이고, 이는 곧 게임에 하나만 존재하면 되므로 GameManager가 관리하도록 함
     private float health;
-    
+
     //get set
     public float Health
     {
-        get { return health;  }
-        set { health = value;  }
+        get { return health; }
+        set { health = value; }
     }
-    
-    
+
+
     public static GameManager Instance
     {
-        get {
+        get
+        {
             // 인스턴스가 없는 경우에 접근하려 하면 인스턴스를 할당해준다.
-            if(!_instance)
+            if (!_instance)
             {
                 _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-    
+
     //GameManager 싱글톤 적용
     private void Awake()
     {
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
         //healthBar.fillAmount = health / maxHealth;
     }
 
-    
+
 
 
 
