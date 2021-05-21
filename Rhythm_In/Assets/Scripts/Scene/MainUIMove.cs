@@ -32,4 +32,9 @@ public class MainUIMove : MonoBehaviour
     {
         pos.anchoredPosition = new Vector2(0, 0f);
     }
+
+    public void goOption()
+    {
+        pos.anchoredPosition = new Vector2(18f, -10f);
+    }
 }

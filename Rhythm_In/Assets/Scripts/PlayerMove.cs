@@ -36,16 +36,6 @@ public class PlayerMove : MonoBehaviour
     private int isDoubleJump = 0;
     void Update()
     {
-
-        //씬 리셋
-        if (Input.GetKey(KeyCode.R))
-            SceneManager.LoadScene("Stage01");
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            SceneManager.LoadScene(0);
-        }
-        
         //이동 애니메이션
         if (rigid.velocity.x < 1f)
             anim.SetBool(IsRun, false);
@@ -56,7 +46,7 @@ public class PlayerMove : MonoBehaviour
 
         
         //공격
-        if(Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0) )
+        if(Input.GetKeyDown(KeyCode.A))
         {
             anim.SetTrigger("doAttack1");
             
