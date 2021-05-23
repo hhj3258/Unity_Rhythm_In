@@ -14,11 +14,12 @@ public class SceneChanger : MonoBehaviour
     }
     void Update()
     {
-        // 씬 전환시 전환될 씬이랑 사용할 키 설정
-        if (Input.GetKeyDown(useKey))
-        {
-            Application.LoadLevel(nextSceneName);
-        }
+      
     }
-
+        public void Event01()
+    {
+        Application.LoadLevel("Event01");
+    }
 }
+
+
