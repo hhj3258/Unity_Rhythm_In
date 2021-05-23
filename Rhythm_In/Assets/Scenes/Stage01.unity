@@ -807,6 +807,7 @@ MonoBehaviour:
   moveSpeed: 70
   jumpPower: 30
   hitbox: 4
+  isRun: 1
   HitboxChecker: {fileID: 1085545861}
 --- !u!70 &1664166815
 CapsuleCollider2D:

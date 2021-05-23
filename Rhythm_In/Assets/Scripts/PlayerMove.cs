@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
+    [SerializeField] private bool isRun;
     public HitboxChecker HitboxChecker;
     
     
@@ -91,8 +92,9 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //이동
-        rigid.AddForce(Vector2.right * moveSpeed );
+        //스테이지 따라서 isRun 값으로 자동이동 온오프 조정
+        if(isRun)
+            rigid.AddForce(Vector2.right * moveSpeed );
         
         //점프 & 더블 점프
         if (Input.GetButtonDown("Jump") && isDoubleJump < 2)

@@ -6,19 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     [SerializeField]
-    private string nextSceneName;
-    [SerializeField]
-    private string useKey;
-    void Start()
+    private string sceneName;
+    public void ChangeScene()
     {
-    }
-    void Update()
-    {
-      
-    }
-        public void Event01()
-    {
-        Application.LoadLevel("Event01");
+        SceneManager.LoadScene(sceneName);
     }
 }
 
