@@ -92,7 +92,8 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //스테이지 따라서 isRun 값으로 자동이동 온오프 조정
+        // 캐릭터 이동
+        // 스테이지 따라서 isRun 값으로 자동이동 온오프 조정
         if(isRun)
             rigid.AddForce(Vector2.right * moveSpeed );
         
