@@ -559,8 +559,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240892302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.09, y: -0.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.3771, y: -0.48, z: 0}
+  m_LocalScale: {x: 9.9342, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -577,8 +577,8 @@ GameObject:
   - component: {fileID: 1351316977}
   - component: {fileID: 1351316976}
   - component: {fileID: 1351316975}
-  - component: {fileID: 1351316974}
   - component: {fileID: 1351316973}
+  - component: {fileID: 1351316974}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -611,14 +611,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1351316972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74dd96c9d2d78f14591c4a6c3b7f631b, type: 3}
+  m_Script: {fileID: 11500000, guid: 888edfe6a2f14b648ac0fbdb301d2f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 70
-  jumpPower: 30
-  hitbox: 4
-  isRun: 0
-  HitboxChecker: {fileID: 854912264}
+  moveSpeed: 10
+  jumpPower: 10
 --- !u!95 &1351316975
 Animator:
   serializedVersion: 3
@@ -718,7 +715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351316972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 1.78, z: 0}
+  m_LocalPosition: {x: -0.58, y: 3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 849196833}
