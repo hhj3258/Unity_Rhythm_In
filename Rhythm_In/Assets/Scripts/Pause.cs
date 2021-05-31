@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
+    public InputManager im;
+
     private bool isPause;
     void Start()
     {
@@ -12,7 +14,7 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (im.pause)
         {
             /*일시정지 활성화*/
             if (isPause == false)

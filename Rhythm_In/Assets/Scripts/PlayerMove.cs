@@ -86,14 +86,11 @@ public class PlayerMove : MonoBehaviour
         other.enabled = false;
         StartCoroutine(OnDestroyEnemy(other));
 
-        
     }
     
 
     private void FixedUpdate()
     {
-        //rigid.AddForce(Vector2.right * moveSpeed );
-        
 
         //점프 & 더블 점프
         if (im.jump && isDoubleJump < 2)

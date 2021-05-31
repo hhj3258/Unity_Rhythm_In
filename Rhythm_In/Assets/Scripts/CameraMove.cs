@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject playerPosition;
+    [SerializeField] private GameObject playerPosition;
     private Transform playerTransition;
+
     void Start()
     {
         playerTransition = playerPosition.transform;

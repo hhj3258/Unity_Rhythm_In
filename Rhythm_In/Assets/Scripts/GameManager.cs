@@ -15,12 +15,7 @@ public class GameManager : MonoBehaviour
     // health는 플레이어의 체력이고, 이는 곧 게임에 하나만 존재하면 되므로 GameManager가 관리하도록 함
     private float health;
 
-    //get set
-    public float Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
+    [SerializeField] private int bpm1 = 0;
 
 
     public static GameManager Instance
@@ -72,5 +67,15 @@ public class GameManager : MonoBehaviour
     }
 
 
+    //get set
+    public float Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
 
+    public int Bpm1
+    {
+        get { return bpm1; }
+    }
 }

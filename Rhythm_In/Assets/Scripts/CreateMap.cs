@@ -16,9 +16,16 @@ public class CreateMap : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
     private Vector2 enemyAppear;
-    [SerializeField] private int bpm=0;
-    double curTime = 0d;
+    int bpm=0;
+    float curTime = 0;
 
+    GameManager gm;
+
+    private void Start()
+    {
+        gm = GameManager.Instance;
+        bpm = gm.Bpm1;
+    }
 
 
     //생성된 맵 카운터
@@ -45,18 +52,18 @@ public class CreateMap : MonoBehaviour
         }
     }
 
-
-    int createdEnemyCnt=0;
-    int temp = 0;
+    //적 자동 생성
     private void CreateEnemy()
     {
         curTime += Time.deltaTime;
 
-        enemyAppear = new Vector2(player.transform.position.x + 10, 2.5f);
-        if (curTime >= 60d / bpm)    //bpm=120이라면, curTime이 0.5초마다 생성
+        //적 생성 지점: 플레이어 x좌표+20f, 2.5f
+        enemyAppear = new Vector2(player.transform.position.x + 20f, 2.5f);
+
+        if (curTime >= 60f / bpm)    //bpm=120이라면, curTime이 0.5초마다 생성
         {
             GameObject curEnemy = Instantiate(enemy, enemyAppear, Quaternion.identity);
-            curTime -= 60d / bpm;
+            curTime -= 60f / bpm;
         }
     }
 }
