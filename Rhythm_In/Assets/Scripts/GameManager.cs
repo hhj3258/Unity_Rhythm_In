@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
     {
         healthBar = GetComponent<Image>();
         health = maxHealth;
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
     }
 
     private void Update()
@@ -67,10 +70,6 @@ public class GameManager : MonoBehaviour
         //수정바람-현준
         //healthBar.fillAmount = health / maxHealth;
     }
-
-
-
-
 
 
 

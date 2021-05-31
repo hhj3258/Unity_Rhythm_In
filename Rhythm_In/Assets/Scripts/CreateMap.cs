@@ -7,13 +7,27 @@ public class CreateMap : MonoBehaviour
     [SerializeField] private GameObject playerObj;
     [SerializeField] private GameObject Maps;
     [SerializeField] private GameObject grid;
+
     
+
+    [SerializeField] private PlayerMove playerMove;
+
+
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
+    private Vector2 enemyAppear;
+    [SerializeField] private int bpm=0;
+    double curTime = 0d;
+
+
+
     //생성된 맵 카운터
     private int createdMapCnt = 1;
     
     void Update()
     {
         CreateMaps();
+        CreateEnemy();
     }
     
     //맵 자동생성 메소드
@@ -28,8 +42,21 @@ public class CreateMap : MonoBehaviour
             Vector3 point = new Vector3(playerObj.transform.position.x + 5f, 0f, 0f);
             //타일맵을 Grid 오브젝트의 자식으로 생성
             Instantiate(Maps, point, Quaternion.identity).transform.parent = grid.transform;
-
         }
     }
-    
+
+
+    int createdEnemyCnt=0;
+    int temp = 0;
+    private void CreateEnemy()
+    {
+        curTime += Time.deltaTime;
+
+        enemyAppear = new Vector2(player.transform.position.x + 10, 2.5f);
+        if (curTime >= 60d / bpm)    //bpm=120이라면, curTime이 0.5초마다 생성
+        {
+            GameObject curEnemy = Instantiate(enemy, enemyAppear, Quaternion.identity);
+            curTime -= 60d / bpm;
+        }
+    }
 }

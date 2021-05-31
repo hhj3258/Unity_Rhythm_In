@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -11,9 +11,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
     public HitboxChecker HitboxChecker;
-    
-    
-    
+
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+        
+    }
+
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
     Animator anim;
@@ -21,6 +25,12 @@ public class PlayerMove : MonoBehaviour
     //애니메이션 변수 id
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsRun = Animator.StringToHash("isRun");
+
+    int damDirc = 0;
+    [SerializeField] float maxSlow;
+    [SerializeField] float slowInterval;
+
+    public InputManager im;
 
     void Awake()
     {
@@ -32,8 +42,8 @@ public class PlayerMove : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    //더블 점프 카운터
-    private int isDoubleJump = 0;
+    
+    private int isDoubleJump = 0;   //더블 점프 카운터
     void Update()
     {
         //이동 애니메이션
@@ -42,59 +52,51 @@ public class PlayerMove : MonoBehaviour
         else
             anim.SetBool(IsRun, true);
 
-        
 
-        
         //공격
-        if(Input.GetKeyDown(KeyCode.A))
+        if(im.attack)
         {
             anim.SetTrigger("doAttack1");
             
             if(HitboxChecker.IsEnemy)
                 Attack(HitboxChecker.HitCol);
-            /*
-            //플레이어 포지션 기준으로 X축 방향으로 RAY를 쏴줌, Enemy에게만 맞도록 layer 설정
-            RaycastHit2D rayAttack = 
-                Physics2D.Raycast(rigid.position, Vector2.right, hitbox, LayerMask.GetMask("Enemy"));
-            
-            Debug.DrawRay(rigid.position, Vector2.right * hitbox, new Color(1, 1, 1));
-            
-            //레이가 감지되면 맞은 오브젝트의 die 애니메이션 재생
-            //콜라이더를 비활성화 시켜줌으로써 플레이어에게 피해 없음
-            //애니메이션이 끝난 뒤(1초 뒤)에 오브젝트 삭제
-            if (rayAttack)
-            {
-                //Debug.Log(raycastHit2D.transform.name);
-                rayAttack.transform.GetComponent<Animator>().SetTrigger("doHitDie");
-                rayAttack.collider.enabled = false;
-                StartCoroutine(OnDestroyEnemy(rayAttack));
-            }
-            */
-            
-            //transform.GetChild(1).GetComponent<>()
+
         }
-        
-        
+
+        if((int)Time.timeSinceLevelLoad > temp)
+        {
+            temp = (int)Time.timeSinceLevelLoad;
+            //StartCoroutine(PlayerPos());
+            Debug.Log((int)Time.timeSinceLevelLoad + "초" + transform.position);
+        }
+
+
+        transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
+        //rigid.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
     }
-    
+    int temp = 0;
+
+
     // 공격 로직 수정
     // 기존 레이에서 콜라이더 충돌 방식으로 변경함
     void Attack(Collider2D other)
     {
-        
         //Debug.Log(raycastHit2D.transform.name);
         other.transform.GetComponent<Animator>().SetTrigger("doHitDie");
         other.enabled = false;
         StartCoroutine(OnDestroyEnemy(other));
+
+        
     }
     
 
     private void FixedUpdate()
     {
-            rigid.AddForce(Vector2.right * moveSpeed );
+        //rigid.AddForce(Vector2.right * moveSpeed );
         
+
         //점프 & 더블 점프
-        if (Input.GetButtonDown("Jump") && isDoubleJump < 2)
+        if (im.jump && isDoubleJump < 2)
         {
 
             if (isDoubleJump == 1)
@@ -110,8 +112,9 @@ public class PlayerMove : MonoBehaviour
             isDoubleJump++;
         }
     }
-    
-    
+
+
+
     IEnumerator OnDestroyEnemy(Collider2D raycastHit2D)
     {
         yield return new WaitForSeconds(1);
@@ -130,7 +133,7 @@ public class PlayerMove : MonoBehaviour
 
         if (other.transform.CompareTag("Enemy"))
         {
-            OnDamaged(other.transform.position);
+            //OnDamaged(other.transform.position);
         }
         
     }
@@ -138,16 +141,18 @@ public class PlayerMove : MonoBehaviour
     //슬로우모션 로직 콜라이더 trigger 방식으로 변경
     private void OnTriggerEnter2D(Collider2D other)
     {
-        OnSlowbox(other);
+        //OnSlowbox(other);
     }
 
 
     //슬로우모션 판정
     void OnSlowbox(Collider2D other)
     {
+        
         if (other.transform.CompareTag("Enemy"))
         {
-            Time.timeScale = 0.5f;
+            Time.timeScale = Mathf.Lerp(Time.timeScale, maxSlow, slowInterval*Time.deltaTime);
+            Debug.Log(Time.timeScale);
         }
         else
             Time.timeScale = 1f;
@@ -156,6 +161,8 @@ public class PlayerMove : MonoBehaviour
     //적에게 부딪혔을 때
     void OnDamaged(Vector2 targetPos)
     {
+
+
         //6=PlayerDamaged
         gameObject.layer = 6;
 
@@ -163,7 +170,7 @@ public class PlayerMove : MonoBehaviour
         spRenderer.color = new Color(1, 1, 1, 0.7f);
 
         
-        int damDirc = 0;
+        
         //플레이어 포지션과 enemy 포지션의 차를 이용해서 플레이어가 튕겨져 나갈 방향 계산
         if ((transform.position.x - targetPos.x) > 0) damDirc = -1;
         else damDirc = -1;

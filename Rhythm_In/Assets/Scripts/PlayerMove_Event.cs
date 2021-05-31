@@ -20,11 +20,9 @@ public class PlayerMove_Event : MonoBehaviour
     void Awake()
     {
         rigid = gameObject.GetComponent<Rigidbody2D>();
-        
+
         anim = GetComponent<Animator>();
-        
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
+
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
