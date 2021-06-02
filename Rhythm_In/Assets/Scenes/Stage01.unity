@@ -328,7 +328,6 @@ GameObject:
   m_Component:
   - component: {fileID: 515749597}
   - component: {fileID: 515749596}
-  - component: {fileID: 515749598}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -363,19 +362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &515749598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515749595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: defaf5c6f75b681418cc2a883aad1b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  im: {fileID: 1664166810}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2126634480}
   - component: {fileID: 2126634479}
+  - component: {fileID: 2126634481}
   m_Layer: 0
   m_Name: Fast and Run
   m_TagString: Untagged
@@ -1637,6 +1624,20 @@ Transform:
   m_Father: {fileID: 1878611469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2126634481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126634478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defaf5c6f75b681418cc2a883aad1b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  im: {fileID: 1664166810}
+  audio: {fileID: 2126634479}
 --- !u!1 &2138877824
 GameObject:
   m_ObjectHideFlags: 0

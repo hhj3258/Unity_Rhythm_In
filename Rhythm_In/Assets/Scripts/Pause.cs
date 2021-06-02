@@ -5,7 +5,8 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     public InputManager im;
-
+    [SerializeField]
+    private AudioSource audio;
     private bool isPause;
     void Start()
     {
@@ -19,6 +20,7 @@ public class Pause : MonoBehaviour
             /*일시정지 활성화*/
             if (isPause == false)
             {
+                audio.Pause();
                 Time.timeScale = 0;
                 isPause = true;
                 return;
@@ -28,6 +30,7 @@ public class Pause : MonoBehaviour
             // 일시정지 비활성화 때 3초 정도 뒤에 다시 시작되는거 구현 & 이미지 필요
             if (isPause == true)
             {
+                audio.Play();
                 Time.timeScale = 1;
                 isPause = false;
                 return;
