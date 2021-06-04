@@ -67,7 +67,7 @@ public class PlayerMove : MonoBehaviour
         {
             temp = (int)Time.timeSinceLevelLoad;
             //StartCoroutine(PlayerPos());
-            Debug.Log((int)Time.timeSinceLevelLoad + "초" + transform.position);
+            //Debug.Log((int)Time.timeSinceLevelLoad + "초" + transform.position);
         }
 
 
