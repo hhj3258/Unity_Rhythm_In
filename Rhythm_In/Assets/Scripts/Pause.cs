@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +23,7 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        // Escape ´­¸± ‹š ¸¶´Ù isPause ´Ş¶óÁü
+        // Escape ëˆŒë¦´ ë–„ ë§ˆë‹¤ isPause ë‹¬ë¼ì§
         if (im.pause)
         {
             if (isPause == false)
@@ -34,13 +34,12 @@ public class Pause : MonoBehaviour
                 time = 3;
             }
         }
-        Debug.Log(time);
-        /*ÀÏ½ÃÁ¤Áö ºñÈ°¼ºÈ­*/
+        /*ì¼ì‹œì •ì§€ ë¹„í™œì„±í™”*/
         if (isPause == false && Time.timeScale == 0)
         {
-            // ÀÏ½ÃÁ¤Áö 3ÃÊ µÚ ÇØÁ¦
+            // ì¼ì‹œì •ì§€ 3ì´ˆ ë’¤ í•´ì œ
             time -= Time.unscaledDeltaTime;
-            // ³²Àº ÃÊ ÅØ½ºÆ® Ç¥½Ã 
+            // ë‚¨ì€ ì´ˆ í…ìŠ¤íŠ¸ í‘œì‹œ 
             txtCnt.gameObject.SetActive(true);
             txtCnt.text = ((int)time + 1).ToString();
             if (time < 0)
@@ -51,7 +50,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        /*ÀÏ½ÃÁ¤Áö È°¼ºÈ­*/
+        /*ì¼ì‹œì •ì§€ í™œì„±í™”*/
         if (isPause == true)
         {
 

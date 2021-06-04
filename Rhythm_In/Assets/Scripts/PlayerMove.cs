@@ -46,10 +46,6 @@ public class PlayerMove : MonoBehaviour
     private int isDoubleJump = 0;   //더블 점프 카운터
     void Update()
     {
-        //이동 애니메이션
-        if (rigid.velocity.x < 1f)
-            anim.SetBool(IsRun, false);
-        else
             anim.SetBool(IsRun, true);
 
 

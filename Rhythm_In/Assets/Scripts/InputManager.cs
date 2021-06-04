@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
-
     [HideInInspector] public bool jump;    //Space
     [HideInInspector] public bool attack;
     [HideInInspector] public bool pause;

@@ -41,7 +41,7 @@ public class CreateMap : MonoBehaviour
     private void CreateMaps()
     {
         
-        if (playerObj.transform.position.x / 10f >= createdMapCnt)
+        if (playerObj.transform.position.x / 14f >= createdMapCnt)
         {
             createdMapCnt++;
             
