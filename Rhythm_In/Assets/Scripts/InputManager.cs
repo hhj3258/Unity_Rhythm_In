@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour
     [HideInInspector] public bool jump;    //Space
     [HideInInspector] public bool attack;
     [HideInInspector] public bool pause;
+    [HideInInspector] public bool left;
+    [HideInInspector] public bool right;
 
 
     void Update()
@@ -15,6 +17,8 @@ public class InputManager : MonoBehaviour
         jump = Input.GetKeyDown(KeyCode.Space);
         attack = Input.GetKeyDown(KeyCode.A);
         pause = Input.GetKeyDown(KeyCode.Escape);
+        left = Input.GetKeyDown(KeyCode.LeftArrow);
+        right = Input.GetKeyDown(KeyCode.RightArrow);
 
 
         if (Input.GetKeyDown(KeyCode.R))
