@@ -36,16 +36,31 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-
+    private float nowTime=0;
+    private int tempTime = 0;
     private int isDoubleJump = 0;   //더블 점프 카운터
     void Update()
     {
         anim.SetBool(IsRun, true);
 
+        nowTime += Time.deltaTime;
+
+        if((int)nowTime > tempTime)
+        {
+            tempTime = (int)nowTime;
+            Debug.Log("noTime: " + tempTime);
+            Debug.Log("pos: " + transform.position);
+            
+
+        }
+        
 
         //공격
         if (im.attack)
         {
+            
+
+
             anim.SetTrigger("doAttack1");
 
             //if (HitboxChecker.IsEnemy)

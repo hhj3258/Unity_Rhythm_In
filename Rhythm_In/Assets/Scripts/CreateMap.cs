@@ -14,7 +14,7 @@ public class CreateMap : MonoBehaviour
     int bpm=0;
     float curTime = 0;
 
-    float delayTime;
+    //float delayTime;
 
     GameManager gm;
 
@@ -22,7 +22,7 @@ public class CreateMap : MonoBehaviour
     {
         gm = GameManager.Instance;
         bpm = gm.Bpm1;
-        delayTime = (60f / gm.Bpm1) / 2f;
+        //delayTime = (60f / gm.Bpm1) / 2f;
     }
 
 
@@ -32,14 +32,14 @@ public class CreateMap : MonoBehaviour
     void Update()
     {
         CreateMaps();
-        CreateEnemy();
+        //CreateEnemy();
     }
     
     //맵 자동생성 메소드
     private void CreateMaps()
     {
         
-        if (player.transform.position.x / 14f >= createdMapCnt)
+        if (player.transform.position.x / 13f >= createdMapCnt)
         {
             createdMapCnt++;
             
@@ -58,7 +58,7 @@ public class CreateMap : MonoBehaviour
         //적 생성 지점: 플레이어 x= x좌표+20f, y= 2.5f
         enemyAppear = new Vector2(player.transform.position.x + 20f, 2.5f);
 
-        if (curTime >= 60f / bpm + delayTime)    //bpm=120이라면, curTime이 0.5초마다 생성
+        if (curTime >= 60f / bpm)    //bpm=120이라면, curTime이 0.5초마다 생성
         {
             GameObject curEnemy = Instantiate(enemys[Random.Range(0,2)], enemyAppear, Quaternion.identity);
             curTime -= 60f / bpm;

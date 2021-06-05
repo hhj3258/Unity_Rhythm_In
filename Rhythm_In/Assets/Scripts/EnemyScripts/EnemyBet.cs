@@ -8,7 +8,7 @@ public class EnemyBet : EnemyController
 
     private void Update()
     {
-        Debug.Log(player);
+        //Debug.Log(player);
 
         if (hitboxChecker.IsEnemy 
             && im.attack 
