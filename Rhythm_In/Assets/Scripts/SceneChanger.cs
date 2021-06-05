@@ -11,6 +11,11 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void isButtonClick()
+    {
+        Debug.Log("버튼 눌러짐");
+    }
     public void Exit()
     {
             Application.Quit();
