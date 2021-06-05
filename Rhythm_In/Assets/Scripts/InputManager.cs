@@ -17,9 +17,8 @@ public class InputManager : MonoBehaviour
         jump = Input.GetKeyDown(KeyCode.Space);
         attack = Input.GetKeyDown(KeyCode.A);
         pause = Input.GetKeyDown(KeyCode.Escape);
-        left = Input.GetKeyDown(KeyCode.LeftArrow);
-        right = Input.GetKeyDown(KeyCode.RightArrow);
-
+        left = Input.GetKey(KeyCode.LeftArrow);
+        right = Input.GetKey(KeyCode.RightArrow);
 
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
