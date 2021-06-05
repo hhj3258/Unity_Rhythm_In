@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         gm = GameManager.Instance;
-        backMusic.PlayDelayed( (60f / gm.Bpm1) / 2f );  //°ÔÀÓ ½ÃÀÛ ½Ã ¸®µë¹Ù Å¸ÀÌ¹ÖÀ» ¸ÂÃß±â À§ÇØ¼­ µô·¹ÀÌ
+        backMusic.PlayDelayed( (60f / gm.Bpm1) / 2f );  //ê²Œì„ ì‹œì‘ ì‹œ ë¦¬ë“¬ë°” íƒ€ì´ë°ì„ ë§ì¶”ê¸° ìœ„í•´ì„œ ë”œë ˆì´
     }
 
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class CreateMap : MonoBehaviour
     }
 
 
-    //»ı¼ºµÈ ¸Ê Ä«¿îÅÍ
+    //ìƒì„±ëœ ë§µ ì¹´ìš´í„°
     private int createdMapCnt = 1;
     
     void Update()
@@ -37,7 +37,7 @@ public class CreateMap : MonoBehaviour
         CreateEnemy();
     }
     
-    //¸Ê ÀÚµ¿»ı¼º ¸Ş¼Òµå
+    //ë§µ ìë™ìƒì„± ë©”ì†Œë“œ
     private void CreateMaps()
     {
         
@@ -45,22 +45,22 @@ public class CreateMap : MonoBehaviour
         {
             createdMapCnt++;
             
-            //¸Ê »ı¼º Æ÷ÀÎÆ®¸¦ ÇöÀç ÇÃ·¹ÀÌ¾îÀÇ Æ÷Áö¼Ç.X +5 ·Î ÇÔ 
+            //ë§µ ìƒì„± í¬ì¸íŠ¸ë¥¼ í˜„ì¬ í”Œë ˆì´ì–´ì˜ í¬ì§€ì…˜.X +5 ë¡œ í•¨ 
             Vector3 point = new Vector3(playerObj.transform.position.x + 5f, 0f, 0f);
-            //Å¸ÀÏ¸ÊÀ» Grid ¿ÀºêÁ§Æ®ÀÇ ÀÚ½ÄÀ¸·Î »ı¼º
+            //íƒ€ì¼ë§µì„ Grid ì˜¤ë¸Œì íŠ¸ì˜ ìì‹ìœ¼ë¡œ ìƒì„±
             Instantiate(Maps, point, Quaternion.identity).transform.parent = grid.transform;
         }
     }
 
-    //Àû ÀÚµ¿ »ı¼º
+    //ì  ìë™ ìƒì„±
     private void CreateEnemy()
     {
         curTime += Time.deltaTime;
 
-        //Àû »ı¼º ÁöÁ¡: ÇÃ·¹ÀÌ¾î xÁÂÇ¥+20f, 2.5f
+        //ì  ìƒì„± ì§€ì : í”Œë ˆì´ì–´ xì¢Œí‘œ+20f, 2.5f
         enemyAppear = new Vector2(player.transform.position.x + 20f, 2.5f);
 
-        if (curTime >= 60f / bpm)    //bpm=120ÀÌ¶ó¸é, curTimeÀÌ 0.5ÃÊ¸¶´Ù »ı¼º
+        if (curTime >= 60f / bpm)    //bpm=120ì´ë¼ë©´, curTimeì´ 0.5ì´ˆë§ˆë‹¤ ìƒì„±
         {
             GameObject curEnemy = Instantiate(enemy, enemyAppear, Quaternion.identity);
             curTime -= 60f / bpm;

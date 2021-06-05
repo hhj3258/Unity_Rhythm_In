@@ -1,12 +1,12 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HitboxChecker : MonoBehaviour
 {
-    //ÇÃ·¹ÀÌ¾î ÀÚ½Ä ¿ÀºêÁ§Æ® Hitbox¿¡ ´Ş¾ÆÁÙ Å¬·¡½º
-    //°ø°İ ·ÎÁ÷ ÆÇÁ¤¿¡ ÇÊ¿äÇÑ Äİ¶óÀÌ´õ trigger Á¤º¸¸¦ PlayerMove¿¡ Àü´ŞÇÔ.
+    //í”Œë ˆì´ì–´ ìì‹ ì˜¤ë¸Œì íŠ¸ Hitboxì— ë‹¬ì•„ì¤„ í´ë˜ìŠ¤
+    //ê³µê²© ë¡œì§ íŒì •ì— í•„ìš”í•œ ì½œë¼ì´ë” trigger ì •ë³´ë¥¼ PlayerMoveì— ì „ë‹¬í•¨.
 
     private bool isEnemy = false;
     private Collider2D hitCol;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -27,7 +27,7 @@ public class RhythmBar : MonoBehaviour
     void Update()
     {
         
-        //°ø°ÝÅ°¸¦ ´­·¶À¸¸ç slider°¡ 0.3º¸´Ù Å©°í 0.7º¸´Ù ÀÛÀ» ¶§ »¡°£ »ö
+        //ê³µê²©í‚¤ë¥¼ ëˆŒë €ìœ¼ë©° sliderê°€ 0.3ë³´ë‹¤ í¬ê³  0.7ë³´ë‹¤ ìž‘ì„ ë•Œ ë¹¨ê°„ ìƒ‰
         if (im.attack && slider.normalizedValue > 0.3f && slider.normalizedValue < 0.7f)
         {
             slider.handleRect.GetComponent<Image>().color = Color.red;
