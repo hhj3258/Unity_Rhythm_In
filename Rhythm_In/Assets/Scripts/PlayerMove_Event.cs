@@ -13,8 +13,15 @@ public class PlayerMove_Event : MonoBehaviour
     Animator anim;
     public InputManager im;
     Vector3 moveVelocity;
+    private bool isMoving;
+
     //애니메이션 변수 id
     private static readonly int IsRun = Animator.StringToHash("isRun");
+
+    public bool getisMoving
+    {
+        get { return isMoving; }
+    }
 
     void Awake()
     {
@@ -22,13 +29,20 @@ public class PlayerMove_Event : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        
-
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
         Move();
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "Wall")
+            isMoving = false;
+        else if (col.gameObject.tag == "Ground")
+            isMoving = true;
     }
 
     void Move()
@@ -49,8 +63,4 @@ public class PlayerMove_Event : MonoBehaviour
         }
         transform.position += moveVelocity * moveSpeed * Time.deltaTime;
     }
-    
-    
-    
-    
 }

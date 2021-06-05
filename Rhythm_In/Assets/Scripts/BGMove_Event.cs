@@ -7,6 +7,7 @@ public class BGMove_Event : MonoBehaviour
     private Material backGround;
     [SerializeField] private float moveSpeed;
     public InputManager im;
+    public PlayerMove_Event pm;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +20,23 @@ public class BGMove_Event : MonoBehaviour
     {
         if (im.right)
         {
-            Vector2 newOffset = backGround.mainTextureOffset;
-            newOffset.Set(newOffset.x + (moveSpeed * Time.deltaTime), 0);
-            backGround.mainTextureOffset = newOffset;
+            if (pm.getisMoving)
+            {
+                Vector2 newOffset = backGround.mainTextureOffset;
+                newOffset.Set(newOffset.x + (moveSpeed * Time.deltaTime), 0);
+                backGround.mainTextureOffset = newOffset;
+            }
         }
-            
+
         else if (im.left)
         {
-            Vector2 newOffset = backGround.mainTextureOffset;
-            newOffset.Set(newOffset.x - (moveSpeed * Time.deltaTime), 0);
-            backGround.mainTextureOffset = newOffset;
+            if (pm.getisMoving)
+            {
+                Vector2 newOffset = backGround.mainTextureOffset;
+                newOffset.Set(newOffset.x - (moveSpeed * Time.deltaTime), 0);
+                backGround.mainTextureOffset = newOffset;
+            }
+
         }
     }
 }
