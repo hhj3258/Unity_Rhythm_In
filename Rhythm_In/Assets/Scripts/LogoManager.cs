@@ -33,16 +33,20 @@ public class LogoManager : MonoBehaviour
                 break;
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
+        if(Time.realtimeSinceStartup>=3f)
+            LogoManage();    
+    }
+    // Update is called once per frame
+    void LogoManage()
+    {
+        Logo.SetActive(true);
         color = new Color(1, 1, 1, color.a + alphaSpeed * Time.deltaTime);
         ren.color = color;
         if (color.a >= 1 && txt.color.a <= 1)
         {
             txt.color= new Color(1,1,1, txt.color.a + alphaSpeed * Time.deltaTime);
-            Debug.Log(txt.color.a);
         }
         if (txt.color.a >= 0.9f)
         {
