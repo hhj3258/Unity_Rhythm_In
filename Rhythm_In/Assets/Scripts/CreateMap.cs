@@ -32,7 +32,7 @@ public class CreateMap : MonoBehaviour
     void Update()
     {
         CreateMaps();
-        //CreateEnemy();
+        CreateEnemy();
     }
     
     //맵 자동생성 메소드
@@ -50,16 +50,24 @@ public class CreateMap : MonoBehaviour
         }
     }
 
+    int createdEnemyCnt=3;
     //적 자동 생성
     private void CreateEnemy()
     {
         curTime += Time.deltaTime;
-        
-        //적 생성 지점: 플레이어 x= x좌표+20f, y= 2.5f
-        enemyAppear = new Vector2(player.transform.position.x + 20f, 2.5f);
 
-        if (curTime >= 60f / bpm)    //bpm=120이라면, curTime이 0.5초마다 생성
+        //적 생성 지점: 플레이어 x= x좌표+20f, y= 2.5f
+        //enemyAppear = new Vector2(player.transform.position.x + 18f, 0f);
+
+
+        // X포지션 = (플레이어 이동속도 * 생성된 에너미 프리팹 수) + (플레이어 이동속도*오프셋) + (플레이어 이동속도 * 초당bpm / 2)
+        // 플레이어 이동속도(속도) * 오프셋(시간) = 거리
+        // 플레이어 이동속도(속도) * 초당bpm / 2(시간) = 거리
+        enemyAppear = new Vector2(PlayerMove.MoveSpeed * createdEnemyCnt + PlayerMove.MoveSpeed*gm.offset + PlayerMove.MoveSpeed * (60f / gm.Bpm1 / 2f), 0f);
+
+        if (curTime >= (60f / bpm))    //bpm=120이라면, curTime이 0.5초마다 생성
         {
+            createdEnemyCnt += 4;
             GameObject curEnemy = Instantiate(enemys[Random.Range(0,2)], enemyAppear, Quaternion.identity);
             curTime -= 60f / bpm;
         }

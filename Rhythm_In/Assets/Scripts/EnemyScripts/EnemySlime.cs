@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class EnemySlime : EnemyController
 {
     [SerializeField] private float moveSpeed;
-    private int health = 3;
+    private int health = 2;
 
+    private TextMeshProUGUI tests;
     private void Update()
     {
         //if (im.attack) Debug.Log("a");
@@ -24,12 +26,12 @@ public class EnemySlime : EnemyController
             else
                 BackMove();
         }
-
+        
     }
 
     void BackMove()
     {
-        transform.DOMoveX(transform.position.x + 15f, 1f).SetEase(Ease.OutExpo);
+        transform.DOMoveX(transform.position.x + PlayerMove.MoveSpeed, 1f).SetEase(Ease.OutQuart);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

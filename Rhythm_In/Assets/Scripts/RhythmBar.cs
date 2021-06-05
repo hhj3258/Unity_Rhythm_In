@@ -16,27 +16,31 @@ public class RhythmBar : MonoBehaviour
     private void Start()
     {
         gm = GameManager.Instance;
+        //offset = 60f / gm.Bpm1 / 2f;    //ex) bpm=60이라면 0.5초 딜레이
 
-        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-
+        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset);
     }
 
-    
 
+    private float nowTime = 0;
+    private int tempTime = 0;
     // Update is called once per frame
     void Update()
     {
         //if (im.attack)
         //    Debug.Log(Time.realtimeSinceStartup);
         //Debug.Log(Time.timeSinceLevelLoad);
-        if(Time.timeSinceLevelLoad <= 0f)
+        nowTime += Time.deltaTime;
+
+        if ((int)nowTime > tempTime)
         {
-            //Debug.Log("chk");
-            slider.value = 0;
+            tempTime = (int)nowTime;
+            Debug.Log("slider: " + slider.value);
+            
         }
         
         //공격키를 눌렀으며 slider가 0.3보다 크고 0.7보다 작을 때 빨간 색
-        if (im.attack && slider.normalizedValue > 0.3f && slider.normalizedValue < 0.7f)
+        if (im.attack && slider.normalizedValue > 0.4f && slider.normalizedValue < 0.6f)
         {
             slider.handleRect.GetComponent<Image>().color = Color.red;
         }

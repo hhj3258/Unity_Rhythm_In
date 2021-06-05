@@ -7,12 +7,14 @@ using DG.Tweening;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private static float moveSpeed = 15f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
-
-
-
+    
+    public static float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
 
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
@@ -44,22 +46,19 @@ public class PlayerMove : MonoBehaviour
         anim.SetBool(IsRun, true);
 
         nowTime += Time.deltaTime;
+        
 
-        if((int)nowTime > tempTime)
+        if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            Debug.Log("noTime: " + tempTime);
+            Debug.Log("nowTime: " + nowTime);
             Debug.Log("pos: " + transform.position);
-            
-
         }
         
 
         //공격
         if (im.attack)
         {
-            
-
 
             anim.SetTrigger("doAttack1");
 

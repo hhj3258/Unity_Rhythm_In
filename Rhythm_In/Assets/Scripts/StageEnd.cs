@@ -14,7 +14,7 @@ public class StageEnd : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(Time.realtimeSinceStartup);
+        //Debug.Log(Time.realtimeSinceStartup);
         if (Time.realtimeSinceStartup >= a)
             sc.ChangeScene("Event02");
 

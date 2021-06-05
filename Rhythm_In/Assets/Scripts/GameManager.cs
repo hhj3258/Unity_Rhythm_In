@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int bpm1 = 0;
 
+    public float offset;
+
     //[SerializeField] private GameObject player;
 
     public static GameManager Instance
