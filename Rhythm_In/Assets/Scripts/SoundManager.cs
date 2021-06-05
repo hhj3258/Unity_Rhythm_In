@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
     {
         gm = GameManager.Instance;
         //backMusic.PlayDelayed( (60f / gm.Bpm1) / 2f + 3f );  //게임 시작 시 리듬바 타이밍을 맞추기 위해서 딜레이
-        backMusic.PlayDelayed(10f);  //게임 시작 시 리듬바 타이밍을 맞추기 위해서 딜레이
+        //backMusic.PlayDelayed(10f);  //게임 시작 시 리듬바 타이밍을 맞추기 위해서 딜레이
     }
 
 }

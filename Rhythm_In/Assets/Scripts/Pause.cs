@@ -9,7 +9,7 @@ public class Pause : MonoBehaviour
 {
     public InputManager im;
     [SerializeField]
-    private AudioSource audio;
+    private AudioSource bgm;
     private bool isPause;
     private float time;
     public GameObject[] spriteCnt;
@@ -50,7 +50,7 @@ public class Pause : MonoBehaviour
             if (time < 0)
             {
                 Time.timeScale = 1;
-                audio.Play();
+                bgm.Play();
                 spriteCnt[2].SetActive(false);
                 spriteCnt[1].SetActive(false);
                 spriteCnt[0].SetActive(false);
@@ -61,7 +61,7 @@ public class Pause : MonoBehaviour
         if (isPause == true && Time.timeScale==1)
         {
             Time.timeScale = 0;
-            audio.Pause();
+            bgm.Pause();
         }
     }
 

@@ -29,7 +29,7 @@ public class EnemySlime : EnemyController
 
     void BackMove()
     {
-        transform.DOMoveX(transform.position.x + 10f, 1f).SetEase(Ease.OutExpo);
+        transform.DOMoveX(transform.position.x + 15f, 1f).SetEase(Ease.OutExpo);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
