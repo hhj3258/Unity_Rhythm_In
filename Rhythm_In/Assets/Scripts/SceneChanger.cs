@@ -11,19 +11,12 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    private void Update()
+    public void Exit()
     {
-        // 로고에서 아무키나 눌러서 메인화면 가기
-        if(SceneManager.GetActiveScene().name == "Logo")
-            if (Input.anyKeyDown)
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                SceneManager.LoadScene("Logo");
-            }
+        if (Application.isEditor)
+            UnityEditor.EditorApplication.isPlaying = false;
+        else
+            Application.Quit();
     }
 }
 
