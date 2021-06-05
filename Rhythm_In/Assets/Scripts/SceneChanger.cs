@@ -11,16 +11,13 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    //Overloading ChangeScene
-    public void ChangeScene(string scenename)
+
+    public void isButtonClick()
     {
-        SceneManager.LoadScene(scenename);
+        Debug.Log("버튼 눌러짐");
     }
     public void Exit()
     {
-        if (Application.isEditor)
-            UnityEditor.EditorApplication.isPlaying = false;
-        else
             Application.Quit();
     }
 }
