@@ -43,6 +43,10 @@ public class PlayerMove_Event : MonoBehaviour
             isMoving = false;
         else if (col.gameObject.tag == "Ground")
             isMoving = true;
+        if(col.gameObject.tag == "SceneChanger")
+        {
+            SceneManager.LoadScene("Stage01");
+        }
     }
 
     void Move()

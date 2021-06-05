@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Wall
+  - SceneChanger
   layers:
   - Default
   - TransparentFX
