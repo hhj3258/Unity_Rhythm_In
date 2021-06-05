@@ -1619,6 +1619,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2126634480}
   - component: {fileID: 2126634479}
+  - component: {fileID: 2126634482}
+  - component: {fileID: 2126634481}
   m_Layer: 0
   m_Name: Fast and Run
   m_TagString: Untagged
@@ -1736,6 +1738,33 @@ Transform:
   m_Father: {fileID: 1878611469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2126634481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126634478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c64addd189639f46b1ddaec51bbb465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 
+--- !u!114 &2126634482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126634478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495e2e7dd765b3242b5b3ea812e1fb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sc: {fileID: 2126634481}
+  bgm: {fileID: 2126634479}
 --- !u!1 &2138877824
 GameObject:
   m_ObjectHideFlags: 0
