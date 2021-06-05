@@ -26,6 +26,14 @@ public class RhythmBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (im.attack)
+            Debug.Log(Time.realtimeSinceStartup);
+        //Debug.Log(Time.timeSinceLevelLoad);
+        if(Time.timeSinceLevelLoad <= 0f)
+        {
+            //Debug.Log("chk");
+            slider.value = 0;
+        }
         
         //공격키를 눌렀으며 slider가 0.3보다 크고 0.7보다 작을 때 빨간 색
         if (im.attack && slider.normalizedValue > 0.3f && slider.normalizedValue < 0.7f)

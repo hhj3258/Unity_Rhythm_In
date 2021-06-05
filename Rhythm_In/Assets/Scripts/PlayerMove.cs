@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
     private int isDoubleJump = 0;   //더블 점프 카운터
     void Update()
     {
-            anim.SetBool(IsRun, true);
+        anim.SetBool(IsRun, true);
 
 
         //공격

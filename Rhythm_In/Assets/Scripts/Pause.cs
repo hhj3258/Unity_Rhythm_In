@@ -14,10 +14,14 @@ public class Pause : MonoBehaviour
     private float time;
     public GameObject[] spriteCnt;
 
-    void Start()
+    public AudioSource cntSound;
+    int pastTime=3;
+    void Awake()
     {
+        Time.timeScale = 0;
         isPause = false;
         time = 3;
+
     }
 
     void Update()
@@ -26,11 +30,13 @@ public class Pause : MonoBehaviour
         // Escape 눌릴 떄 마다 isPause 달라짐
         if (im.pause)
         {
+            
             if (isPause == false)
                 isPause = true;
             else
             {
                 isPause = false;
+                pastTime = 3;
                 time = 3;
             }
         }
@@ -52,7 +58,7 @@ public class Pause : MonoBehaviour
         }
 
         /*일시정지 활성화*/
-        if (isPause == true)
+        if (isPause == true && Time.timeScale==1)
         {
             Time.timeScale = 0;
             audio.Pause();
@@ -67,15 +73,32 @@ public class Pause : MonoBehaviour
             spriteCnt[1].SetActive(true);
             spriteCnt[0].SetActive(true);
         }
-        Debug.Log("time : " + time);
+        //Debug.Log("time : " + time);
         switch (time)
         {
-            
+            case 2:
+                if (time < pastTime)
+                {
+                    cntSound.Play();
+                    pastTime = time;
+                }
+                break;
             case 1:
                 spriteCnt[2].SetActive(false);
+                if (time < pastTime)
+                {
+                    cntSound.Play();
+                    pastTime = time;
+                }
+                    
                 break;
             case 0:
                 spriteCnt[1].SetActive(false);
+                if (time < pastTime)
+                {
+                    cntSound.Play();
+                    pastTime = time;
+                }
                 break;
         }
     }
