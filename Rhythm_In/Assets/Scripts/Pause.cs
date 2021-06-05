@@ -13,6 +13,8 @@ public class Pause : MonoBehaviour
     private bool isPause;
     private float time;
     public GameObject[] spriteCnt;
+    private bool isReturning;
+   
 
     public AudioSource cntSound;
     int pastTime=3;
@@ -21,16 +23,15 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         isPause = false;
         time = 3;
-
+        isReturning = true;
     }
 
     void Update()
     {
 
         // Escape 눌릴 떄 마다 isPause 달라짐
-        if (im.pause)
+        if (im.pause && isReturning)
         {
-            
             if (isPause == false)
                 isPause = true;
             else
@@ -46,7 +47,8 @@ public class Pause : MonoBehaviour
             // 일시정지 3초 뒤 해제
             time -= Time.unscaledDeltaTime;
             // 남은 초 이미지로 표시
-            CountDown((int)time);
+                CountDown((int)time);
+            
             if (time < 0)
             {
                 Time.timeScale = 1;
@@ -54,6 +56,7 @@ public class Pause : MonoBehaviour
                 spriteCnt[2].SetActive(false);
                 spriteCnt[1].SetActive(false);
                 spriteCnt[0].SetActive(false);
+                isReturning = true;
             }
         }
 
@@ -67,6 +70,7 @@ public class Pause : MonoBehaviour
 
     void CountDown(int time)
     {
+        isReturning = false;
         if (!spriteCnt[2].activeSelf && !spriteCnt[0].activeSelf)
         {
             spriteCnt[2].SetActive(true);
@@ -74,32 +78,33 @@ public class Pause : MonoBehaviour
             spriteCnt[0].SetActive(true);
         }
         //Debug.Log("time : " + time);
-        switch (time)
-        {
-            case 2:
-                if (time < pastTime)
-                {
-                    cntSound.Play();
-                    pastTime = time;
-                }
-                break;
-            case 1:
-                spriteCnt[2].SetActive(false);
-                if (time < pastTime)
-                {
-                    cntSound.Play();
-                    pastTime = time;
-                }
-                    
-                break;
-            case 0:
-                spriteCnt[1].SetActive(false);
-                if (time < pastTime)
-                {
-                    cntSound.Play();
-                    pastTime = time;
-                }
-                break;
+            switch (time)
+            {
+                case 2:
+                    if (time < pastTime)
+                    {
+                        cntSound.Play();
+                        pastTime = time;
+                    }
+                    break;
+                case 1:
+                    spriteCnt[2].SetActive(false);
+                    if (time < pastTime)
+                    {
+                        cntSound.Play();
+                        pastTime = time;
+                    }
+
+                    break;
+                case 0:
+                    spriteCnt[1].SetActive(false);
+                    if (time < pastTime)
+                    {
+                        cntSound.Play();
+                        pastTime = time;
+                    }
+                    break;
+            
         }
     }
 }
