@@ -26,8 +26,8 @@ public class RhythmBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (im.attack)
-            Debug.Log(Time.realtimeSinceStartup);
+        //if (im.attack)
+        //    Debug.Log(Time.realtimeSinceStartup);
         //Debug.Log(Time.timeSinceLevelLoad);
         if(Time.timeSinceLevelLoad <= 0f)
         {

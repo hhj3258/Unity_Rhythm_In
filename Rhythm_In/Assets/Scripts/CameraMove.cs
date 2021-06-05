@@ -6,6 +6,7 @@ public class CameraMove : MonoBehaviour
 {
     [SerializeField] private GameObject playerPosition;
     private Transform playerTransition;
+    public float yPos;
 
     void Start()
     {
@@ -14,6 +15,6 @@ public class CameraMove : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = new Vector3(playerTransition.position.x, playerTransition.position.y * 0.2f, -10f);
+        transform.position = new Vector2(playerTransition.position.x, playerTransition.position.y * 0.2f + yPos);
     }
 }

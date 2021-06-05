@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int bpm1 = 0;
 
+    private GameObject player;
 
     public static GameManager Instance
     {
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     //GameManager 싱글톤 적용
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if (_instance == null)
         {
             _instance = this;
@@ -55,13 +58,15 @@ public class GameManager : MonoBehaviour
         healthBar = GetComponent<Image>();
         health = maxHealth;
 
+        
+
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
     }
 
     private void Update()
     {
-
+        //Debug.Log(player);
         //수정바람-현준
         //healthBar.fillAmount = health / maxHealth;
     }
@@ -77,5 +82,11 @@ public class GameManager : MonoBehaviour
     public int Bpm1
     {
         get { return bpm1; }
+    }
+
+    public GameObject Player
+    {
+        get { return player; }
+        set { player = value; }
     }
 }

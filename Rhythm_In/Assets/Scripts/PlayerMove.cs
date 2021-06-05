@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
-    public HitboxChecker HitboxChecker;
+
 
     public float MoveSpeed
     {
@@ -37,9 +37,7 @@ public class PlayerMove : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
+
     }
 
     
@@ -53,9 +51,12 @@ public class PlayerMove : MonoBehaviour
         if(im.attack)
         {
             anim.SetTrigger("doAttack1");
-            
-            if(HitboxChecker.IsEnemy)
-                Attack(HitboxChecker.HitCol);
+
+            //if (HitboxChecker.IsEnemy)
+            //{
+            //    Attack(HitboxChecker.HitCol);
+            //}
+                
 
         }
 
@@ -73,16 +74,7 @@ public class PlayerMove : MonoBehaviour
     int temp = 0;
 
 
-    // 공격 로직 수정
-    // 기존 레이에서 콜라이더 충돌 방식으로 변경함
-    void Attack(Collider2D other)
-    {
-        //Debug.Log(raycastHit2D.transform.name);
-        other.transform.GetComponent<Animator>().SetTrigger("doHitDie");
-        other.enabled = false;
-        StartCoroutine(OnDestroyEnemy(other));
 
-    }
     
 
     private void FixedUpdate()
@@ -107,12 +99,6 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-
-    IEnumerator OnDestroyEnemy(Collider2D raycastHit2D)
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(raycastHit2D.transform.gameObject);
-    }
 
 
 
