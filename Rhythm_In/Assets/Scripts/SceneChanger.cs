@@ -11,11 +11,6 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    //Overloading ChangeScene
-    public void ChangeScene(string scenename)
-    {
-        SceneManager.LoadScene(scenename);
-    }
     public void Exit()
     {
         if (Application.isEditor)

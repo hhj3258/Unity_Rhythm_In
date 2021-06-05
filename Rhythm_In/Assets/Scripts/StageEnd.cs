@@ -7,16 +7,16 @@ public class StageEnd : MonoBehaviour
 {
     [SerializeField] private SceneChanger sc;
     [SerializeField] private AudioSource bgm;
-    float a;
+    float bgmlength;
     void Start()
     {
-        a = bgm.clip.length;
+        bgmlength = bgm.clip.length;
     }
     void Update()
     {
         Debug.Log(Time.realtimeSinceStartup);
-        if (Time.realtimeSinceStartup >= a)
-            sc.ChangeScene("Event02");
+        if (Time.realtimeSinceStartup >= bgmlength)
+            sc.ChangeScene();
 
     }
 }
