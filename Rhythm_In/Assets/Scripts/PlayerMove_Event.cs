@@ -53,13 +53,13 @@ public class PlayerMove_Event : MonoBehaviour
     {
         moveVelocity = Vector3.zero;
         anim.SetBool("isRun", false);
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (im.left)
         {
             moveVelocity = Vector3.left;
             anim.SetBool("isRun", true);
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0)
+        else if (im.right)
         {
             moveVelocity = Vector3.right;
             anim.SetBool("isRun", true);
