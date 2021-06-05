@@ -6,30 +6,24 @@ using DG.Tweening;
 public class EnemySlime : EnemyController
 {
     [SerializeField] private float moveSpeed;
-
-
     private int health = 3;
-
 
     private void Update()
     {
         //if (im.attack) Debug.Log("a");
 
-        if (hitboxChecker.IsEnemy && im.attack && health > 0 && hitboxChecker.HitCol.transform == transform)
+        if (hitboxChecker.IsEnemy 
+            && im.attack 
+            && health > 0 
+            && hitboxChecker.HitCol.transform == transform)
         {
             health -= 1;
 
             if (health == 0)
-            {
                 Attacked();
-            }
             else
-            {
                 BackMove();
-            }
-
         }
-
 
     }
 

@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58305caf6f747694e9420138d8ad1b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2743763189721912398, guid: c0f16fea0893d1240a25cbe631a93cfd, type: 3}
+  finder: {fileID: 8931239205523098678, guid: 5502b511b6fdffc459fbe2aabaf4c01c, type: 3}
   moveSpeed: 10

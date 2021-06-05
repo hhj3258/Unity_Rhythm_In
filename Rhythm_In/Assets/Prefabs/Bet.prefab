@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8484878489554273176}
   - component: {fileID: -8179488155661389300}
   m_Layer: 3
-  m_Name: fly
+  m_Name: Bet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,5 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de5dd518cc40d244bd16d00e059cccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2743763189721912398, guid: c0f16fea0893d1240a25cbe631a93cfd, type: 3}
-  moveSpeed: 0
+  finder: {fileID: 8931239205523098678, guid: 5502b511b6fdffc459fbe2aabaf4c01c, type: 3}

@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private GameObject player;
-
+    protected GameObject player;
     protected HitboxChecker hitboxChecker;
     protected InputManager im;
 
-    private GameManager gm;
 
     private void Start()
     {
-        gm = GameManager.Instance;
-        player = gm.Player;
+        player = GameObject.FindGameObjectWithTag("Player");
         hitboxChecker = player.GetComponentInChildren<HitboxChecker>();
         im = player.GetComponent<InputManager>();
-    }
-
-    private void Update()
-    {
-        if (!player) gm.Player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     // 공격 로직 수정

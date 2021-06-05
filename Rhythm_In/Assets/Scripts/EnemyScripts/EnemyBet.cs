@@ -8,7 +8,12 @@ public class EnemyBet : EnemyController
 
     private void Update()
     {
-        if (hitboxChecker.IsEnemy && im.attack && health > 0 && hitboxChecker.HitCol.transform==transform)
+        Debug.Log(player);
+
+        if (hitboxChecker.IsEnemy 
+            && im.attack 
+            && health > 0 
+            && hitboxChecker.HitCol.transform==transform)
         {
             health -= 1;
 
@@ -17,5 +22,6 @@ public class EnemyBet : EnemyController
                 Attacked();
             }
         }
+
     }
 }
