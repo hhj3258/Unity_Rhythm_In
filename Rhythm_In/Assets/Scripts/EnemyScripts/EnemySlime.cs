@@ -32,6 +32,7 @@ public class EnemySlime : EnemyController
     void BackMove()
     {
         transform.DOMoveX(transform.position.x + PlayerMove.MoveSpeed, 1f).SetEase(Ease.OutQuart);
+        enemySound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

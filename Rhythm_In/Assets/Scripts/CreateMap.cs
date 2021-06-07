@@ -10,13 +10,15 @@ public class CreateMap : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject[] enemys;
 
+    GameManager gm;
+
     private Vector2 enemyAppear;
     int bpm=0;
     float curTime = 0;
 
-    //float delayTime;
+    public float enemyOffset;
 
-    GameManager gm;
+    
 
     private void Start()
     {
@@ -63,8 +65,8 @@ public class CreateMap : MonoBehaviour
         // X포지션 = (플레이어 이동속도 * 생성된 에너미 프리팹 수) + (플레이어 이동속도*오프셋) + (플레이어 이동속도 * 초당bpm / 2)
         // 플레이어 이동속도(속도) * 오프셋(시간) = 거리
         // 플레이어 이동속도(속도) * 초당bpm / 2(시간) = 거리
-        // 플레이어 위치 보정 -> +3.5f
-        enemyAppear = new Vector2(3.5f + PlayerMove.MoveSpeed * createdEnemyCnt + PlayerMove.MoveSpeed*gm.offset + PlayerMove.MoveSpeed * (60f / gm.Bpm1 / 2f), 0f);
+        // enemyOffset: 에너미 위치 보정
+        enemyAppear = new Vector2(enemyOffset + PlayerMove.MoveSpeed * createdEnemyCnt + PlayerMove.MoveSpeed*gm.offset + PlayerMove.MoveSpeed * (60f / gm.Bpm1 / 2f), 0f);
 
         if (curTime >= (60f / bpm))    //bpm=120이라면, curTime이 0.5초마다 생성
         {

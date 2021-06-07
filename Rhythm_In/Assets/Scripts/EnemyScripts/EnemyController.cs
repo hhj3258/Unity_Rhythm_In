@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     protected GameObject player;
     protected HitboxChecker hitboxChecker;
     protected InputManager im;
-
+    public AudioSource enemySound;
 
     private void Start()
     {
@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     {
         transform.GetComponent<Animator>().SetTrigger("doHitDie");
         transform.GetComponent<CircleCollider2D>().enabled = false;
+
+        enemySound.Play();
+
         StartCoroutine(OnDestroyEnemy());
     }
 

@@ -35,7 +35,7 @@ public class RhythmBar : MonoBehaviour
         if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            Debug.Log("slider: " + slider.value);
+            //Debug.Log("slider: " + slider.value);
             
         }
         

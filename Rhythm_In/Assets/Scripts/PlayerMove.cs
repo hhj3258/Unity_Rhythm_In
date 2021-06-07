@@ -46,55 +46,42 @@ public class PlayerMove : MonoBehaviour
         anim.SetBool(IsRun, true);
 
         nowTime += Time.deltaTime;
-        
+
 
         if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            Debug.Log("nowTime: " + nowTime);
-            Debug.Log("pos: " + transform.position);
+            //Debug.Log("nowTime: " + nowTime);
+            //Debug.Log("pos: " + transform.position);
         }
-        
+
 
         //공격
         if (im.attack)
         {
-
             anim.SetTrigger("doAttack1");
 
             //if (HitboxChecker.IsEnemy)
             //{
             //    Attack(HitboxChecker.HitCol);
             //}
-                
-
         }
-
-        if ((int)Time.timeSinceLevelLoad > temp)
-        {
-            temp = (int)Time.timeSinceLevelLoad;
-            //StartCoroutine(PlayerPos());
-            //Debug.Log((int)Time.timeSinceLevelLoad + "초" + transform.position);
-        }
-
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
         //rigid.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
-    }
-    int temp = 0;
 
+        ////점프 & 더블 점프
+        //if (im.jump && isDoubleJump < 2)
+        //{
 
+        //}
 
-    
-
-    private void FixedUpdate()
-    {
 
         //점프 & 더블 점프
         if (im.jump && isDoubleJump < 2)
         {
 
-            if (isDoubleJump == 1)
+            if (isDoubleJump == 1)  //더블점프
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, 0f);
                 rigid.AddForce(Vector2.up * (jumpPower * 1.2f), ForceMode2D.Impulse);
@@ -103,22 +90,24 @@ public class PlayerMove : MonoBehaviour
                 rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
 
             anim.SetBool(IsJumping, true);
-
             isDoubleJump++;
         }
     }
-
-
-
 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         //바닥 착지시 점프 애니메이션 중지
         if (other.transform.CompareTag("Ground"))
+        {
+            //Debug.Log("착지");
             anim.SetBool(IsJumping, false);
-        //더블 점프 카운트 초기화
-        isDoubleJump = 0;
+            
+            //더블 점프 카운트 초기화
+            isDoubleJump = 0;
+        }
+            
+        
 
         if (other.transform.CompareTag("Enemy"))
         {

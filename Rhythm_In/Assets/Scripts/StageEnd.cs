@@ -14,7 +14,7 @@ public class StageEnd : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(bgmlength);
+        //Debug.Log(bgmlength);
         if(Time.timeScale != 0)
             bgmlength -= Time.unscaledDeltaTime;
         if (bgmlength <= 0)
