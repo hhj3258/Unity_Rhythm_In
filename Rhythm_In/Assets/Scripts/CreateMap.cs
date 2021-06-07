@@ -63,7 +63,8 @@ public class CreateMap : MonoBehaviour
         // X포지션 = (플레이어 이동속도 * 생성된 에너미 프리팹 수) + (플레이어 이동속도*오프셋) + (플레이어 이동속도 * 초당bpm / 2)
         // 플레이어 이동속도(속도) * 오프셋(시간) = 거리
         // 플레이어 이동속도(속도) * 초당bpm / 2(시간) = 거리
-        enemyAppear = new Vector2(PlayerMove.MoveSpeed * createdEnemyCnt + PlayerMove.MoveSpeed*gm.offset + PlayerMove.MoveSpeed * (60f / gm.Bpm1 / 2f), 0f);
+        // 플레이어 위치 보정 -> +3.5f
+        enemyAppear = new Vector2(3.5f + PlayerMove.MoveSpeed * createdEnemyCnt + PlayerMove.MoveSpeed*gm.offset + PlayerMove.MoveSpeed * (60f / gm.Bpm1 / 2f), 0f);
 
         if (curTime >= (60f / bpm))    //bpm=120이라면, curTime이 0.5초마다 생성
         {
