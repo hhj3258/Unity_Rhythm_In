@@ -10,7 +10,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private static float moveSpeed = 15f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
-    
+
+    public AudioSource swordSound;
+
     public static float MoveSpeed
     {
         get { return moveSpeed; }
@@ -60,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         if (im.attack)
         {
             anim.SetTrigger("doAttack1");
-
+            swordSound.Play();
             //if (HitboxChecker.IsEnemy)
             //{
             //    Attack(HitboxChecker.HitCol);
@@ -69,13 +71,6 @@ public class PlayerMove : MonoBehaviour
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
         //rigid.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
-
-        ////점프 & 더블 점프
-        //if (im.jump && isDoubleJump < 2)
-        //{
-
-        //}
-
 
         //점프 & 더블 점프
         if (im.jump && isDoubleJump < 2)
