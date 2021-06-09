@@ -6,14 +6,15 @@ using TMPro;
 
 public class EnemySlime : EnemyController
 {
-    [SerializeField] private float moveSpeed;
-    private int health = 2;
 
-    private TextMeshProUGUI tests;
+    protected override void Start()
+    {
+        base.Start();
+        health = 2;
+    }
+
     private void Update()
     {
-        //if (im.attack) Debug.Log("a");
-
         if (hitboxChecker.IsEnemy 
             && im.attack 
             && health > 0 
@@ -25,13 +26,16 @@ public class EnemySlime : EnemyController
                 Attacked();
             else
                 BackMove();
+
+            
         }
         
     }
 
     void BackMove()
     {
-        transform.DOMoveX(transform.position.x + PlayerMove.MoveSpeed, 1f).SetEase(Ease.OutQuart);
+        transform.DOMoveX(transform.position.x + 
+            (PlayerMove.MoveSpeed * 60f/gm.Bpm1), 60f / gm.Bpm1).SetEase(Ease.OutQuart);
         enemySound.Play();
     }
 

@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     public int Bpm1
     {
         get { return bpm1; }
+        set { bpm1 = value; }
     }
 
     //public GameObject Player

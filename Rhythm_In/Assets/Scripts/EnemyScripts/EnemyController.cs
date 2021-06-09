@@ -7,13 +7,17 @@ public class EnemyController : MonoBehaviour
     protected GameObject player;
     protected HitboxChecker hitboxChecker;
     protected InputManager im;
-    public AudioSource enemySound;
+    protected GameManager gm;
 
-    private void Start()
+    public AudioSource enemySound;
+    protected int health=0;
+
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         hitboxChecker = player.GetComponentInChildren<HitboxChecker>();
         im = player.GetComponent<InputManager>();
+        gm = GameManager.Instance;
     }
 
     // 공격 로직 수정

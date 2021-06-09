@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class EnemyBet : EnemyController
 {
-    private int health = 1;
+    //private int health = 1;
+    protected override void Start()
+    {
+        base.Start();
+        health = 1;
+    }
 
     private void Update()
     {

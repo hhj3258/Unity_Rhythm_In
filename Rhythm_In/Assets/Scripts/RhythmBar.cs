@@ -11,6 +11,7 @@ public class RhythmBar : MonoBehaviour
 
     [SerializeField] private InputManager im;
 
+    public static bool bpmChange=false;
     //float t = 0;
 
     private void Start()
@@ -18,7 +19,7 @@ public class RhythmBar : MonoBehaviour
         gm = GameManager.Instance;
         //offset = 60f / gm.Bpm1 / 2f;    //ex) bpm=60이라면 0.5초 딜레이
 
-        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset);
+        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset * 60f/gm.Bpm1);
     }
 
 
@@ -27,6 +28,13 @@ public class RhythmBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (bpmChange && slider.value <= 0.01f)
+        //{
+        //    slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+        //    bpmChange = false;
+        //}
+
+
         //if (im.attack)
         //    Debug.Log(Time.realtimeSinceStartup);
         //Debug.Log(Time.timeSinceLevelLoad);
