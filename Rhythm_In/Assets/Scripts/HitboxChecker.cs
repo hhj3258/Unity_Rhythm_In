@@ -39,6 +39,7 @@ public class HitboxChecker : MonoBehaviour
         {
             isEnemy = true;
             hitCol = other;
+            Debug.Log(hitCol.name);
         }
     }
 

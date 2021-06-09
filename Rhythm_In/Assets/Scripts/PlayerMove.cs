@@ -53,7 +53,7 @@ public class PlayerMove : MonoBehaviour
         if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            //Debug.Log("nowTime: " + nowTime);
+            //Debug.Log("nowTime: " + (int)nowTime);
             //Debug.Log("pos: " + transform.position);
         }
 

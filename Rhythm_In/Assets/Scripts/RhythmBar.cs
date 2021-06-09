@@ -22,7 +22,6 @@ public class RhythmBar : MonoBehaviour
         slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset * 60f/gm.Bpm1);
     }
 
-
     private float nowTime = 0;
     private int tempTime = 0;
     // Update is called once per frame

@@ -47,9 +47,9 @@ public class EnemyVivace : EnemyController
 
     void RunAttack()
     {
-        transform.GetComponent<Animator>().SetTrigger("doRun");
+        transform.GetComponent<Animator>().SetTrigger("doAttack");
 
-        transform.DOMoveX(17, 1).SetEase(Ease.InOutQuad);
+        transform.DOMoveX(transform.position.x-7, 1).SetEase(Ease.InOutQuad);
     }
 
 }

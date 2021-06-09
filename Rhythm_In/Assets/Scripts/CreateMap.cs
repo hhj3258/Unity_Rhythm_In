@@ -30,7 +30,7 @@ public class CreateMap : MonoBehaviour
     void Update()
     {
         CreateMaps();
-        CreateEnemy();
+        //CreateEnemy();
     }
 
     //맵 자동생성 메소드
@@ -72,8 +72,6 @@ public class CreateMap : MonoBehaviour
             Invoke("EnemyCntResize", 2);
         }
 
-        //적 생성 지점: 플레이어 x= x좌표+20f, y= 2.5f
-        //enemyAppear = new Vector2(player.transform.position.x + 18f, 0f);
 
         // X포지션 = (플레이어 이동속도 * 생성된 에너미 프리팹 수) + (플레이어 이동속도*오프셋) + (플레이어 이동속도 / 2)
         // 플레이어 이동속도(속도) * 오프셋(시간) = 거리
