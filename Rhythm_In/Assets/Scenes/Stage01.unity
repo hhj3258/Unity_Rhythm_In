@@ -2154,6 +2154,7 @@ GameObject:
   - component: {fileID: 1664166813}
   - component: {fileID: 1664166814}
   - component: {fileID: 1664166810}
+  - component: {fileID: 1664166815}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2305,6 +2306,19 @@ MonoBehaviour:
   maxSlow: 0.4
   slowInterval: 30
   im: {fileID: 1664166810}
+--- !u!114 &1664166815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664166808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8d4308eac7f55438459e9d810e8a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1664166808}
 --- !u!61 &1664166816
 BoxCollider2D:
   m_ObjectHideFlags: 0
