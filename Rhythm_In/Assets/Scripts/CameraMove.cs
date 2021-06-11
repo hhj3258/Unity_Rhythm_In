@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.GetComponent<Camera>().DOOrthoSize(8.5f, 0.2f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
+            transform.GetComponent<Camera>().DOOrthoSize(7.5f, 0.15f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
         }
     }
 
