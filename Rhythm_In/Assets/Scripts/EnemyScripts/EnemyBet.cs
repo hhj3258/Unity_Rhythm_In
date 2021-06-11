@@ -17,24 +17,30 @@ public class EnemyBet : EnemyController
 
     private void Update()
     {
-
-
-        if (hitboxChecker.IsEnemy && im.attack && health > 0 && hitboxChecker.HitCol.transform == transform)
+        if (hitboxChecker.IsEnemy && im.attack && health > 0)
         {
-            health -= 1;
-
-            if (health == 0)
+            if(hitboxChecker.HitCol.transform == transform)
             {
-                Attacked();
+                health -= 1;
+
+                if (health == 0)
+                {
+                    Attacked();
+                    Debug.Log("chk");
+                }
+
+                fireBall.transform.GetComponent<Animator>().SetTrigger("doAttach");
             }
 
-            fireBall.transform.GetComponent<Animator>().SetTrigger("doAttach");
+            if(hitboxChecker.HitCol.transform == transform.GetChild(0))
+            {
+                Parrying();
+                mainCam.CameraAttackMove();
+            }
+
         }
 
-        if (hitboxChecker.IsEnemy && im.attack && health > 0 && hitboxChecker.HitCol.transform.name == "FireBall")
-        {
-            Parrying();
-        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +49,17 @@ public class EnemyBet : EnemyController
         {
             Attack();
             isAttack = true;
+        }
+
+        if (collision.name.Equals("FireBall") && isAttack)
+        {
+            health -= 1;
+            if (health == 0)
+            {
+                Attacked();
+            }
+
+            fireBall.transform.GetComponent<Animator>().SetTrigger("doAttach");
         }
     }
 
@@ -55,6 +72,7 @@ public class EnemyBet : EnemyController
 
     private void Parrying()
     {
+        enemySound.Play();
         fireBall.GetComponent<SpriteRenderer>().flipX = false;
         fireBall.transform.DOMove(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), 0.5f);
     }

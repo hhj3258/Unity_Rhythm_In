@@ -23,11 +23,11 @@ public class EnemyVivace : EnemyController
             && hitboxChecker.HitCol.transform == transform)
         {
             health -= 1;
-
+            //Debug.Log("∫ÒπŸ√º");
             if (health == 0)
             {
                 Attacked();
-                Debug.Log(transform.position);
+                mainCam.CameraAttackMove();
             }
                 
 

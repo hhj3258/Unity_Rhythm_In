@@ -9,7 +9,7 @@ public class SceneChanger : MonoBehaviour
     private string sceneName;
     public void ChangeScene()
     {
-        SceneManager.LoadScene(sceneName);
+        LoadingSceneController.LoadingInstance.LoadScene(sceneName);
     }
 
     public void isButtonClick()

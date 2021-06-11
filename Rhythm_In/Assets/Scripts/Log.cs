@@ -14,8 +14,8 @@ public class Log : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("위치 : " + transform.position);
-            Debug.Log("간격 : " + new Vector2(transform.position.x - record.x, 0));
+            //Debug.Log("위치 : " + transform.position);
+            //Debug.Log("간격 : " + new Vector2(transform.position.x - record.x, 0));
             record = transform.position;
         }
     }

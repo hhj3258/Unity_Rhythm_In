@@ -43,9 +43,14 @@ public class PlayerMove_Event : MonoBehaviour
             isMoving = false;
         else if (col.gameObject.tag == "Ground")
             isMoving = true;
-        if(col.gameObject.tag == "SceneChanger")
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "SceneChanger")
         {
-            SceneManager.LoadScene("Stage01");
+            LoadingSceneController.LoadingInstance.LoadScene("Stage01");
         }
     }
 

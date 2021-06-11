@@ -5,21 +5,19 @@ using DG.Tweening;
 
 public class CameraMove : MonoBehaviour
 {
-    [SerializeField] private Transform playerTrans;
+    [SerializeField] private GameObject player;
     public float yPos;
     public float xPos;
 
     void LateUpdate()
     {
-        transform.position = new Vector3(playerTrans.position.x + xPos, playerTrans.position.y * 0.2f + yPos, -10f);
+        transform.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y * 0.2f + yPos, -10f);
     }
 
-    private void Update()
+    public void CameraAttackMove()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.GetComponent<Camera>().DOOrthoSize(7.5f, 0.15f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
-        }
+        DOTween.To(() => xPos, x => xPos = x, 7, 0.15f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
+        transform.GetComponent<Camera>().DOOrthoSize(7.5f, 0.15f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 
 }

@@ -23,9 +23,16 @@ public class EnemySlime : EnemyController
             health -= 1;
 
             if (health == 0)
+            {
                 Attacked();
+                mainCam.CameraAttackMove();
+            }
             else
+            {
                 BackMove();
+                mainCam.CameraAttackMove();
+            }
+                
 
             
         }

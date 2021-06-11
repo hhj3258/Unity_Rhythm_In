@@ -32,6 +32,7 @@ public class HitboxChecker : MonoBehaviour
         get { return IsPerfect; }
     }
 
+    private int temp = 0;
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(isEnemy);
@@ -65,8 +66,4 @@ public class HitboxChecker : MonoBehaviour
         isEnemy = false;
     }
 
-    private void Update()
-    {
-
-    }
 }

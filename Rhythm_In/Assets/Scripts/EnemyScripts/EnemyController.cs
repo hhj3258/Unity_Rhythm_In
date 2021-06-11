@@ -12,12 +12,15 @@ public class EnemyController : MonoBehaviour
     public AudioSource enemySound;
     protected int health=0;
 
+    protected CameraMove mainCam;
+
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         hitboxChecker = player.GetComponentInChildren<HitboxChecker>();
         im = player.GetComponent<InputManager>();
         gm = GameManager.Instance;
+        mainCam = FindObjectOfType<CameraMove>();
     }
 
     // 공격 로직 수정
@@ -30,6 +33,8 @@ public class EnemyController : MonoBehaviour
         enemySound.Play();
 
         StartCoroutine(OnDestroyEnemy());
+
+        
     }
 
     IEnumerator OnDestroyEnemy()
