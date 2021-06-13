@@ -54,8 +54,8 @@ public class PlayerMove : MonoBehaviour
         if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            //Debug.Log("nowTime: " + (int)nowTime);
-            //Debug.Log("pos: " + transform.position);
+            Debug.Log("nowTime: " + (int)nowTime);
+            Debug.Log("pos: " + transform.position);
         }
 
 
@@ -71,6 +71,17 @@ public class PlayerMove : MonoBehaviour
         }
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
+        
+        //플레이어 좌표와 시간간 보정
+        if(transform.position.x < nowTime * 15)
+        {
+            moveSpeed = moveSpeed * 1.01f;
+        }
+        else
+        {
+            moveSpeed = 15;
+        }
+
         //rigid.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
 
         //점프 & 더블 점프

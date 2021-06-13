@@ -23,23 +23,25 @@ public class EnemyCreator : MonoBehaviour
         curTime = 0;
         tempTime = 0;
         gm = GameManager.Instance;
-        Debug.Log(bgm.clip.length - 3);
+        
     }
     private void Update()
     {
         curTime += Time.deltaTime;  //현재 시간
-        Debug.Log("cur: " + curTime);
-        if ((int)curTime > tempTime && bgm.clip.length - 3 > curTime)
+        //Debug.Log("cur: " + curTime);
+        if ((int)curTime > tempTime)
         {
             int index = CreateEnemy();
-
+            
             if (index == 1)
             {
                 tempTime = (int)curTime + 1;
+                Debug.Log("슬라임 생성");
             }
             else
             {
                 tempTime = (int)curTime;
+                Debug.Log("에너미 생성");
             }
 
         }
@@ -54,7 +56,7 @@ public class EnemyCreator : MonoBehaviour
 
         enemyAppear = new Vector2(PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
             enemys[rand].transform.position.y);
-
+        Debug.Log("에너미 X좌표: "+enemyAppear);
         Instantiate(enemys[rand], enemyAppear, Quaternion.identity);
 
         return rand;

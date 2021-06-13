@@ -11,12 +11,12 @@ public class StageEnd : MonoBehaviour
     void Start()
     {
         bgmlength = bgm.clip.length;
+        Debug.Log("브금 길이: " + bgmlength);
     }
     void Update()
     {
-        //Debug.Log(bgmlength);
-        if(Time.timeScale != 0)
-            bgmlength -= Time.unscaledDeltaTime;
+        bgmlength -= Time.deltaTime;
+
         if (bgmlength <= 0)
             sc.ChangeScene();
 
