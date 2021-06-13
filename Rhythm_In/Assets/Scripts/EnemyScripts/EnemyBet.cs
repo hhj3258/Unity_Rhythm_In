@@ -26,7 +26,7 @@ public class EnemyBet : EnemyController
                 if (health == 0)
                 {
                     Attacked();
-                    Debug.Log("chk");
+                    //Debug.Log("chk");
                 }
 
                 fireBall.transform.GetComponent<Animator>().SetTrigger("doAttach");
@@ -51,7 +51,12 @@ public class EnemyBet : EnemyController
             isAttack = true;
         }
 
-        if (collision.name.Equals("FireBall") && isAttack)
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.name.Equals("FireBall") && isAttack)
         {
             health -= 1;
             if (health == 0)
@@ -67,7 +72,7 @@ public class EnemyBet : EnemyController
     {
         transform.GetComponent<Animator>().SetTrigger("doAttack");
         fireBall.transform.GetComponent<Animator>().SetTrigger("doAttack");
-        fireBall.transform.DOMove(new Vector3(transform.position.x - 10, 2.5f, transform.position.z), 1);
+        fireBall.transform.DOMove(new Vector3(transform.position.x - 10, 2.5f, transform.position.z), 0.7f);
     }
 
     private void Parrying()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class PlayerMove : MonoBehaviour
@@ -10,13 +11,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private static float moveSpeed = 15f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
+    [SerializeField] private float maxSlow;
+    [SerializeField] private float slowInterval;
+
+    private int isDoubleJump = 0;   //더블 점프 카운터
 
     public AudioSource swordSound;
+    public InputManager im;
+    public Image[] imgHealths;
 
-    public static float MoveSpeed
-    {
-        get { return moveSpeed; }
-    }
 
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
@@ -26,23 +29,21 @@ public class PlayerMove : MonoBehaviour
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsRun = Animator.StringToHash("isRun");
 
-    int damDirc = 0;
-    [SerializeField] float maxSlow;
-    [SerializeField] float slowInterval;
-
-    public InputManager im;
+    public static float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
     }
 
     private float nowTime=0;
     private int tempTime = 0;
-    private int isDoubleJump = 0;   //더블 점프 카운터
+
     void Update()
     {
         anim.SetBool(IsRun, true);
@@ -101,12 +102,10 @@ public class PlayerMove : MonoBehaviour
             //더블 점프 카운트 초기화
             isDoubleJump = 0;
         }
-            
-        
 
         if (other.transform.CompareTag("Enemy"))
         {
-            //OnDamaged(other.transform.position);
+            OnDamaged(other.transform.position);
         }
 
     }
@@ -134,27 +133,40 @@ public class PlayerMove : MonoBehaviour
     //적에게 부딪혔을 때
     void OnDamaged(Vector2 targetPos)
     {
-
-
         //6=PlayerDamaged
         gameObject.layer = 6;
 
         //무적 상태일 때 티가 나도록 알파 값을 낮춰줌
         spRenderer.color = new Color(1, 1, 1, 0.7f);
 
-
-
         //플레이어 포지션과 enemy 포지션의 차를 이용해서 플레이어가 튕겨져 나갈 방향 계산
-        if ((transform.position.x - targetPos.x) > 0) damDirc = -1;
-        else damDirc = -1;
+        //if ((transform.position.x - targetPos.x) > 0) damDirc = -1;
+        //else damDirc = -1;
 
         //위 계산으로 나온 방향으로 플레이어에게 힘을 가함
-        rigid.AddForce(new Vector2(damDirc, 0f) * 40f, ForceMode2D.Impulse);
+        //rigid.AddForce(new Vector2(damDirc, 0f) * 40f, ForceMode2D.Impulse);
 
         anim.SetTrigger("doDamaged");
 
         //1초간 무적상태
         Invoke("OffDamaged", 1f);
+
+        for(int i = imgHealths.Length -1; i >= 0 ; i--)
+        {
+            if(imgHealths[i].fillAmount != 0)
+            {
+                if(imgHealths[i].fillAmount != 1)
+                {
+                    imgHealths[i].fillAmount = 0;
+                }
+                else
+                {
+                    imgHealths[i].fillAmount -= 0.47f;
+                }
+                
+                break;
+            }
+        }
     }
 
     //무적 판정

@@ -46,10 +46,10 @@ public class EnemySlime : EnemyController
         enemySound.Play();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameManager.Instance.Health -= 10f;
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    GameManager.Instance.Health -= 1f;
+    //}
 
 
 }

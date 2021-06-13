@@ -16,17 +16,20 @@ public class EnemyCreator : MonoBehaviour
 
     private float createdEnemyCnt = 2;
 
+    [SerializeField] private AudioSource bgm;
+
     private void Start()
     {
         curTime = 0;
         tempTime = 0;
         gm = GameManager.Instance;
+        Debug.Log(bgm.clip.length - 3);
     }
     private void Update()
     {
         curTime += Time.deltaTime;  //현재 시간
-
-        if ((int)curTime > tempTime)
+        Debug.Log("cur: " + curTime);
+        if ((int)curTime > tempTime && bgm.clip.length - 3 > curTime)
         {
             int index = CreateEnemy();
 
@@ -49,7 +52,7 @@ public class EnemyCreator : MonoBehaviour
     {
         int rand = Random.Range(0, 3);
 
-        enemyAppear = new Vector2(+PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
+        enemyAppear = new Vector2(PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
             enemys[rand].transform.position.y);
 
         Instantiate(enemys[rand], enemyAppear, Quaternion.identity);
