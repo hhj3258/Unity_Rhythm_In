@@ -15,9 +15,6 @@ public class PlayerMove_Event : MonoBehaviour
     Vector3 moveVelocity;
     private bool isMoving;
 
-    //애니메이션 변수 id
-    private static readonly int IsRun = Animator.StringToHash("isRun");
-
     public bool getisMoving
     {
         get { return isMoving; }
@@ -38,7 +35,6 @@ public class PlayerMove_Event : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Wall")
             isMoving = false;
         else if (col.gameObject.tag == "Ground")
