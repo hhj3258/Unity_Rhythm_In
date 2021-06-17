@@ -20,7 +20,6 @@ public class ShowText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Distance : " + Distance);
         Distance = Vector2.Distance(new Vector2(player.transform.position.x, 0), new Vector2(sign.transform.position.x, 0));
         if(Distance <= showDistance && txt.color.a < 1)
         {

@@ -35,6 +35,7 @@ public class PlayerMove_Event : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
+        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Wall")
             isMoving = false;
         else if (col.gameObject.tag == "Ground")
