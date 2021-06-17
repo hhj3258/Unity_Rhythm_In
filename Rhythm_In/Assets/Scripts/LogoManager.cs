@@ -18,11 +18,11 @@ public class LogoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         ren = Logo.GetComponent<SpriteRenderer>();
         txt = text.GetComponent<TextMeshProUGUI>();
-        color.a = 0;
-        textAlpha = 0;
         random = Random.Range(0, 2);
+        ren.color = new Color(1, 1, 1, 0);
         switch (random)
         {
             case 0:
@@ -42,11 +42,11 @@ public class LogoManager : MonoBehaviour
     void LogoManage()
     {
         Logo.SetActive(true);
-        color = new Color(1, 1, 1, color.a + alphaSpeed * Time.deltaTime);
-        ren.color = color;
-        if (color.a >= 1 && txt.color.a <= 1)
+        Debug.Log(ren.color.a);
+        ren.color = new Color(1, 1, 1, Mathf.Lerp(ren.color.a, 1, 0.01f));
+        if (ren.color.a >= 0.7f)
         {
-            txt.color= new Color(1,1,1, txt.color.a + alphaSpeed * Time.deltaTime);
+            txt.color= new Color(1,1,1, Mathf.Lerp(txt.color.a, 1, 0.01f));
         }
         if (txt.color.a >= 0.9f)
         {

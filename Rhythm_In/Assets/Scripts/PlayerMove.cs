@@ -4,26 +4,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMove : MonoBehaviour
 {
-
     [SerializeField] private static float moveSpeed = 15f;
     [SerializeField] private float jumpPower;
     [SerializeField] private float hitbox;
     [SerializeField] private float maxSlow;
     [SerializeField] private float slowInterval;
 
+
+
     private int isDoubleJump = 0;   //더블 점프 카운터
+    private bool gameOver;
 
     public AudioSource swordSound;
     public InputManager im;
     public Image[] imgHealths;
+    public GameObject gameoverImage; // 게임오버 이미지
+    public GameObject btn; // 버튼
 
+
+    AudioSource bgm;
 
     Rigidbody2D rigid;
     SpriteRenderer spRenderer;
     Animator anim;
+    SpriteRenderer spGO;
+
 
     //애니메이션 변수 id
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
@@ -34,18 +44,32 @@ public class PlayerMove : MonoBehaviour
         get { return moveSpeed; }
     }
 
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        bgm = GameObject.Find("Fast and Run").GetComponent<AudioSource>();
+        gameOver = false;
+        spGO = gameoverImage.GetComponent<SpriteRenderer>();
     }
 
-    private float nowTime=0;
+    private float nowTime = 0;
     private int tempTime = 0;
 
     void Update()
     {
+        if (gameOver) // 게임오버 시 -> imageHealth 관련
+        {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
+            bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
+            spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
+            if (spGO.color.a >= 0.8) 
+                btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+        }
+
+
         anim.SetBool(IsRun, true);
 
         nowTime += Time.deltaTime;
@@ -71,9 +95,9 @@ public class PlayerMove : MonoBehaviour
         }
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
-        
+
         //플레이어 좌표와 시간간 보정
-        if(transform.position.x < nowTime * 15)
+        if (transform.position.x < nowTime * 15)
         {
             moveSpeed = moveSpeed * 1.01f;
         }
@@ -109,7 +133,7 @@ public class PlayerMove : MonoBehaviour
         {
             //Debug.Log("착지");
             anim.SetBool(IsJumping, false);
-            
+
             //더블 점프 카운트 초기화
             isDoubleJump = 0;
         }
@@ -162,11 +186,11 @@ public class PlayerMove : MonoBehaviour
         //1초간 무적상태
         Invoke("OffDamaged", 1f);
 
-        for(int i = imgHealths.Length -1; i >= 0 ; i--)
+        for (int i = imgHealths.Length - 5; i >= 0; i--)
         {
-            if(imgHealths[i].fillAmount != 0)
+            if (imgHealths[i].fillAmount != 0)
             {
-                if(imgHealths[i].fillAmount != 1)
+                if (imgHealths[i].fillAmount != 1)
                 {
                     imgHealths[i].fillAmount = 0;
                 }
@@ -174,7 +198,11 @@ public class PlayerMove : MonoBehaviour
                 {
                     imgHealths[i].fillAmount -= 0.47f;
                 }
-                
+                if (imgHealths[0].fillAmount == 0)
+                {
+                    gameOver = true;
+                    Debug.Log("GameOver");
+                }
                 break;
             }
         }
