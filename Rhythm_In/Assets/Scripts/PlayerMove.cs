@@ -186,7 +186,7 @@ public class PlayerMove : MonoBehaviour
         //1초간 무적상태
         Invoke("OffDamaged", 1f);
 
-        for (int i = imgHealths.Length - 5; i >= 0; i--)
+        for (int i = imgHealths.Length - 1; i >= 0; i--)
         {
             if (imgHealths[i].fillAmount != 0)
             {
