@@ -20,7 +20,7 @@ public class TextController : MonoBehaviour
 
     void Start()
     {
-        isEvent = false;
+        isEvent = true;
         rdr = fadeInImage.GetComponent<CanvasRenderer>();
         txtNum = 0;
     }

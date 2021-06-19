@@ -7,14 +7,10 @@ public class SceneChanger : MonoBehaviour
 {
     [SerializeField]
     private string sceneName;
+
     public void ChangeScene()
     {
         LoadingSceneController.LoadingInstance.LoadScene(sceneName);
-    }
-
-    public void isButtonClick()
-    {
-        Debug.Log("버튼 눌러짐");
     }
     public void Exit()
     {
