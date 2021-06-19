@@ -42,13 +42,16 @@ public class LogoManager : MonoBehaviour
     void LogoManage()
     {
         Logo.SetActive(true);
-        Debug.Log(ren.color.a);
-        ren.color = new Color(1, 1, 1, Mathf.Lerp(ren.color.a, 1, 0.01f));
+        if (ren.color.a >= 0.93f)
+            ren.color = new Color(1, 1, 1, 1);
+        ren.color = new Color(1, 1, 1, Mathf.Lerp(ren.color.a, 1, 0.4f*Time.deltaTime));
         if (ren.color.a >= 0.7f)
         {
-            txt.color= new Color(1,1,1, Mathf.Lerp(txt.color.a, 1, 0.01f));
+            if (txt.color.a >= 0.93f)
+                txt.color = new Color(1, 1, 1, 1);
+            txt.color= new Color(1,1,1, Mathf.Lerp(txt.color.a, 1, 0.4f * Time.deltaTime));
         }
-        if (txt.color.a >= 0.9f)
+        if (txt.color.a >= 0.8f)
         {
             button.SetActive(true);
         }

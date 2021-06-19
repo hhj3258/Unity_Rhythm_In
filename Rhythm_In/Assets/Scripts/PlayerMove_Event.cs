@@ -27,18 +27,25 @@ public class PlayerMove_Event : MonoBehaviour
         anim = GetComponent<Animator>();
 
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        isMoving = false;
     }
     void FixedUpdate()
     {
         Move();
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Wall")
             isMoving = false;
-        else if (col.gameObject.tag == "Ground")
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Wall")
+            isMoving = false;
+        if (col.gameObject.tag == "Ground")
             isMoving = true;
 
     }

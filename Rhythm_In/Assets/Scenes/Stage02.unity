@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b1b1fb8812a3449a147d1b318517ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTrans: {fileID: 1664166812}
+  player: {fileID: 0}
   yPos: 3
   xPos: 10
 --- !u!20 &519420031
@@ -2016,10 +2016,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPower: 30
   hitbox: 4
-  swordSound: {fileID: 1861758629}
   maxSlow: 0.4
   slowInterval: 30
+  swordSound: {fileID: 1861758629}
   im: {fileID: 1664166810}
+  imgHealths: []
+  gameoverImage: {fileID: 0}
+  btn: {fileID: 0}
 --- !u!114 &1664166815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2501,10 +2504,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b35b2a65bb8d8624da988eddfdc99886, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bcace61070322c44995fc3e8ce34234c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.89
+  m_Pitch: 1.01
   Loop: 0
   Mute: 0
   Spatialize: 0

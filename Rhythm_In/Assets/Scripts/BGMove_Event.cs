@@ -8,6 +8,7 @@ public class BGMove_Event : MonoBehaviour
     [SerializeField] private float moveSpeed;
     public InputManager im;
     public PlayerMove_Event pm;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class BGMove_Event : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if (player.transform.position.x >= 10)
+            bgMove();
+    }
+    void bgMove()
     {
         if (im.right)
         {
