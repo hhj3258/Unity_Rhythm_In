@@ -9,6 +9,7 @@ public class PlayerMove_Event : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float attackDelay;
+    [SerializeField] private GameObject[] Slime; // slime[0] = 본체, slime[1] = 느낌표
     private SpriteRenderer sRenderer;
     Rigidbody2D rigid;
     Animator anim;
@@ -17,6 +18,7 @@ public class PlayerMove_Event : MonoBehaviour
     private bool isMoving;
     public AudioSource swordSound;
     private float attackDelayedTime;
+    float eventTime;
 
     public bool getisMoving
     {
@@ -32,19 +34,47 @@ public class PlayerMove_Event : MonoBehaviour
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         isMoving = false;
+
+        eventTime = 0;
     }
     private void Update()
     {
-        if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
+        if (transform.position.x <= 60)
         {
-            attackDelayedTime = Time.realtimeSinceStartup;
-            anim.SetTrigger("doAttack1");
-            swordSound.Play();
+            Attack();
+            Move();
         }
+        else
+        {
+            SceneChangeEvent();
+        }
+
     }
-    void FixedUpdate()
+
+    void SceneChangeEvent() // 슬라임이 플레이어 발견하는 이벤트
     {
-        Move();
+        Slime[0].GetComponent<SpriteRenderer>().flipX = false;
+        Slime[1].SetActive(true);
+        Debug.Log("eventTime : "+ eventTime);
+        anim.SetBool("isRun", false);
+        isMoving = false;
+        eventTime += Time.deltaTime;
+        if (eventTime >= 3.5f && eventTime <= 8f) // 슬라임이 도망
+        {
+            Slime[1].SetActive(false);
+            Slime[0].GetComponent<SpriteRenderer>().flipX = true;
+            Slime[0].transform.position = new Vector3(Mathf.Lerp(Slime[0].transform.position.x, 
+                Slime[0].transform.position.x + 1, 2f * Time.deltaTime), Slime[0].transform.position.y, 0);
+        }
+        else if (eventTime >= 8f) // 플레이어 추격
+        {
+            isMoving = true;
+            Slime[0].SetActive(false);
+            anim.SetBool("isRun", true);
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, transform.position.x + 1, 15f * Time.deltaTime), transform.position.y, 0);
+
+        }
+
     }
 
     private void OnTriggerEnter(Collider col)
@@ -91,5 +121,11 @@ public class PlayerMove_Event : MonoBehaviour
 
     void Attack()
     {
+        if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
+        {
+            attackDelayedTime = Time.realtimeSinceStartup;
+            anim.SetTrigger("doAttack1");
+            swordSound.Play();
+        }
     }
 }

@@ -15,7 +15,7 @@ public class EnemySlime : EnemyController
 
     private void Update()
     {
-        if (hitboxChecker.IsEnemy 
+        if (hitboxChecker.IsEnemy
             && im.attack 
             && health > 0 
             && hitboxChecker.HitCol.transform == transform)

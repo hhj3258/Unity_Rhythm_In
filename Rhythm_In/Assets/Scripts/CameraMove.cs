@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Event01")
         {
-            if (player.transform.position.x >= 10f && player.transform.position.x<=40f)
+            if (player.transform.position.x >= 10f)
                 Move_Event();
         }
         else

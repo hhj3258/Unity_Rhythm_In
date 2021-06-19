@@ -4124,6 +4124,7 @@ MonoBehaviour:
   pause: 0
   left: 0
   right: 0
+  interact: 0
 --- !u!212 &1664166811
 SpriteRenderer:
   m_ObjectHideFlags: 0

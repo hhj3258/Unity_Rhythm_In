@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     [HideInInspector] public bool pause;
     [HideInInspector] public bool left;
     [HideInInspector] public bool right;
+    [HideInInspector] public bool interact;
 
 
     void Update()
@@ -19,6 +20,7 @@ public class InputManager : MonoBehaviour
         pause = Input.GetKeyDown(KeyCode.Escape);
         left = Input.GetKey(KeyCode.LeftArrow);
         right = Input.GetKey(KeyCode.RightArrow);
+        interact = Input.GetKeyDown(KeyCode.LeftControl);
 
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
