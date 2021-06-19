@@ -4228,6 +4228,7 @@ MonoBehaviour:
   hitbox: 4
   maxSlow: 0.4
   slowInterval: 30
+  attackDelay: 0.3
   swordSound: {fileID: 1861758629}
   im: {fileID: 1664166810}
   imgHealths:

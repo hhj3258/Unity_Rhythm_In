@@ -14,11 +14,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float hitbox;
     [SerializeField] private float maxSlow;
     [SerializeField] private float slowInterval;
+    [SerializeField] private float attackDelay;
 
 
 
     private int isDoubleJump = 0;   //더블 점프 카운터
     private bool gameOver;
+    private float attackDelayedTime = 0;
 
     public AudioSource swordSound;
     public InputManager im;
@@ -84,8 +86,9 @@ public class PlayerMove : MonoBehaviour
 
 
         //공격
-        if (im.attack)
+        if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
         {
+            attackDelayedTime = Time.realtimeSinceStartup;
             anim.SetTrigger("doAttack1");
             swordSound.Play();
             //if (HitboxChecker.IsEnemy)

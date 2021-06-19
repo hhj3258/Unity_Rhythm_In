@@ -8,12 +8,15 @@ public class PlayerMove_Event : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float attackDelay;
     private SpriteRenderer sRenderer;
     Rigidbody2D rigid;
     Animator anim;
     public InputManager im;
     Vector3 moveVelocity;
     private bool isMoving;
+    public AudioSource swordSound;
+    private float attackDelayedTime;
 
     public bool getisMoving
     {
@@ -29,6 +32,15 @@ public class PlayerMove_Event : MonoBehaviour
         sRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         isMoving = false;
+    }
+    private void Update()
+    {
+        if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
+        {
+            attackDelayedTime = Time.realtimeSinceStartup;
+            anim.SetTrigger("doAttack1");
+            swordSound.Play();
+        }
     }
     void FixedUpdate()
     {
@@ -75,5 +87,9 @@ public class PlayerMove_Event : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
         transform.position += moveVelocity * moveSpeed * Time.deltaTime;
+    }
+
+    void Attack()
+    {
     }
 }
