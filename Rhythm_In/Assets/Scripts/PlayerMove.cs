@@ -17,9 +17,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float attackDelay;
 
 
-
     private int isDoubleJump = 0;   //더블 점프 카운터
-    private bool gameOver;
+    private static bool gameOver;
     private float attackDelayedTime = 0;
 
     public AudioSource swordSound;
@@ -41,10 +40,7 @@ public class PlayerMove : MonoBehaviour
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsRun = Animator.StringToHash("isRun");
 
-    public static float MoveSpeed
-    {
-        get { return moveSpeed; }
-    }
+ 
 
 
     void Awake()
@@ -55,6 +51,14 @@ public class PlayerMove : MonoBehaviour
         bgm = GameObject.Find("Fast and Run").GetComponent<AudioSource>();
         gameOver = false;
         spGO = gameoverImage.GetComponent<SpriteRenderer>();
+    }
+    public static float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
+
+    public static bool GameOver { 
+        get { return gameOver; } 
     }
 
     private float nowTime = 0;
@@ -190,7 +194,7 @@ public class PlayerMove : MonoBehaviour
         //1초간 무적상태
         Invoke("OffDamaged", 1f);
 
-        for (int i = imgHealths.Length - 1; i >= 0; i--)
+        for (int i = imgHealths.Length - 5; i >= 0; i--)
         {
             if (imgHealths[i].fillAmount != 0)
             {

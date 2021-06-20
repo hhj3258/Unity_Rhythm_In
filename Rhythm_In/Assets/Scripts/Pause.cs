@@ -27,13 +27,13 @@ public class Pause : MonoBehaviour
         isPause = false;
         time = 3;
         isReturning = true;
+
     }
 
     void Update()
     {
-
         // Escape 눌릴 떄 마다 isPause 달라짐
-        if (im.pause && isReturning || isButtonClicked)
+        if (im.pause && isReturning && !PlayerMove.GameOver || isButtonClicked )
         {
             isButtonClicked = false;
             if (isPause == false)
