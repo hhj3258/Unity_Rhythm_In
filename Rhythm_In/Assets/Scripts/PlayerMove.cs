@@ -71,18 +71,15 @@ public class PlayerMove : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DieAnim") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
+                GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
                 bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
                 spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
                 if (spGO.color.a >= 0.8)
                     btn.SetActive(true); // 이미지 나타나면 버튼 활성화
             }
             moveSpeed = Mathf.Lerp(moveSpeed, 0, 0.04f);
-            GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
-            Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
-            bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
-            spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
-            if (spGO.color.a >= 0.8) 
-                btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+            
+
         }
 
         anim.SetBool(IsRun, true);
@@ -132,8 +129,6 @@ public class PlayerMove : MonoBehaviour
             isDoubleJump++;
         }
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -195,7 +190,7 @@ public class PlayerMove : MonoBehaviour
         //1초간 무적상태
         Invoke("OffDamaged", 1f);
 
-        for (int i = imgHealths.Length - 5; i >= 0; i--)
+        for (int i = imgHealths.Length -1; i >= 0; i--)
         {
             if (imgHealths[i].fillAmount != 0)
             {
@@ -207,6 +202,7 @@ public class PlayerMove : MonoBehaviour
                 {
                     imgHealths[i].fillAmount -= 0.47f;
                 }
+
                 if (imgHealths[0].fillAmount == 0)
                 {
                     gameOver = true;
