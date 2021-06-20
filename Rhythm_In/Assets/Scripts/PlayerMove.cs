@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,16 +17,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float attackDelay;
 
 
-
-    private int isDoubleJump = 0;   //ë”ë¸” ì í”„ ì¹´ìš´í„°
-    private bool gameOver;
+    private int isDoubleJump = 0;   //´õºí Á¡ÇÁ Ä«¿îÅÍ
+    private static bool gameOver;
     private float attackDelayedTime = 0;
 
     public AudioSource swordSound;
     public InputManager im;
     public Image[] imgHealths;
-    public GameObject gameoverImage; // ê²Œì„ì˜¤ë²„ ì´ë¯¸ì§€
-    public GameObject btn; // ë²„íŠ¼
+    public GameObject gameoverImage; // °ÔÀÓ¿À¹ö ÀÌ¹ÌÁö
+    public GameObject btn; // ¹öÆ°
 
 
     AudioSource bgm;
@@ -37,14 +36,11 @@ public class PlayerMove : MonoBehaviour
     SpriteRenderer spGO;
 
 
-    //ì• ë‹ˆë©”ì´ì…˜ ë³€ìˆ˜ id
+    //¾Ö´Ï¸ŞÀÌ¼Ç º¯¼ö id
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
     private static readonly int IsRun = Animator.StringToHash("isRun");
 
-    public static float MoveSpeed
-    {
-        get { return moveSpeed; }
-    }
+ 
 
 
     void Awake()
@@ -56,23 +52,37 @@ public class PlayerMove : MonoBehaviour
         gameOver = false;
         spGO = gameoverImage.GetComponent<SpriteRenderer>();
     }
+    public static float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
+
+    public static bool GameOver { 
+        get { return gameOver; } 
+    }
 
     private float nowTime = 0;
     private int tempTime = 0;
 
     void Update()
     {
-        if (gameOver && moveSpeed != 0) // ê²Œì„ì˜¤ë²„ ì‹œ -> imageHealth ê´€ë ¨
+        if (gameOver && moveSpeed != 0) // °ÔÀÓ¿À¹ö ½Ã -> imageHealth °ü·Ã
         {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DieAnim") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale ì²œì²œíˆ 0ìœ¼ë¡œ
-                bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm ì²œì²œíˆ 0ìœ¼ë¡œ
-                spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // ê²Œì„ì˜¤ë²„ ì´ë¯¸ì§€ ì¶œë ¥ -> ì•ŒíŒŒ ê°’ ì¡°ì •
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale ÃµÃµÈ÷ 0À¸·Î
+                bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm ÃµÃµÈ÷ 0À¸·Î
+                spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // °ÔÀÓ¿À¹ö ÀÌ¹ÌÁö Ãâ·Â -> ¾ËÆÄ °ª Á¶Á¤
                 if (spGO.color.a >= 0.8)
-                    btn.SetActive(true); // ì´ë¯¸ì§€ ë‚˜íƒ€ë‚˜ë©´ ë²„íŠ¼ í™œì„±í™”
+                    btn.SetActive(true); // ÀÌ¹ÌÁö ³ªÅ¸³ª¸é ¹öÆ° È°¼ºÈ­
             }
             moveSpeed = Mathf.Lerp(moveSpeed, 0, 0.04f);
+            GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale ÃµÃµÈ÷ 0À¸·Î
+            bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm ÃµÃµÈ÷ 0À¸·Î
+            spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // °ÔÀÓ¿À¹ö ÀÌ¹ÌÁö Ãâ·Â -> ¾ËÆÄ °ª Á¶Á¤
+            if (spGO.color.a >= 0.8) 
+                btn.SetActive(true); // ÀÌ¹ÌÁö ³ªÅ¸³ª¸é ¹öÆ° È°¼ºÈ­
         }
 
         anim.SetBool(IsRun, true);
@@ -86,7 +96,7 @@ public class PlayerMove : MonoBehaviour
             //Debug.Log("pos: " + transform.position);
         }
 
-        //ê³µê²©
+        //°ø°İ
         if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
         {
             attackDelayedTime = Time.realtimeSinceStartup;
@@ -96,7 +106,7 @@ public class PlayerMove : MonoBehaviour
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
 
-        //í”Œë ˆì´ì–´ ì¢Œí‘œì™€ ì‹œê°„ê°„ ë³´ì •
+        //ÇÃ·¹ÀÌ¾î ÁÂÇ¥¿Í ½Ã°£°£ º¸Á¤
         if (transform.position.x < nowTime * 15)
         {
             moveSpeed = moveSpeed * 1.01f;
@@ -106,11 +116,11 @@ public class PlayerMove : MonoBehaviour
             moveSpeed = 15;
         }
 
-        //ì í”„ & ë”ë¸” ì í”„
+        //Á¡ÇÁ & ´õºí Á¡ÇÁ
         if (im.jump && isDoubleJump < 2)
         {
 
-            if (isDoubleJump == 1)  //ë”ë¸”ì í”„
+            if (isDoubleJump == 1)  //´õºíÁ¡ÇÁ
             {
                 rigid.velocity = new Vector2(rigid.velocity.x, 0f);
                 rigid.AddForce(Vector2.up * (jumpPower * 1.2f), ForceMode2D.Impulse);
@@ -127,13 +137,13 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //ë°”ë‹¥ ì°©ì§€ì‹œ ì í”„ ì• ë‹ˆë©”ì´ì…˜ ì¤‘ì§€
+        //¹Ù´Ú ÂøÁö½Ã Á¡ÇÁ ¾Ö´Ï¸ŞÀÌ¼Ç ÁßÁö
         if (other.transform.CompareTag("Ground"))
         {
-            //Debug.Log("ì°©ì§€");
+            //Debug.Log("ÂøÁö");
             anim.SetBool(IsJumping, false);
 
-            //ë”ë¸” ì í”„ ì¹´ìš´íŠ¸ ì´ˆê¸°í™”
+            //´õºí Á¡ÇÁ Ä«¿îÆ® ÃÊ±âÈ­
             isDoubleJump = 0;
         }
 
@@ -144,14 +154,14 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    //ìŠ¬ë¡œìš°ëª¨ì…˜ ë¡œì§ ì½œë¼ì´ë” trigger ë°©ì‹ìœ¼ë¡œ ë³€ê²½
+    //½½·Î¿ì¸ğ¼Ç ·ÎÁ÷ Äİ¶óÀÌ´õ trigger ¹æ½ÄÀ¸·Î º¯°æ
     private void OnTriggerEnter2D(Collider2D other)
     {
         //OnSlowbox(other);
     }
 
 
-    //ìŠ¬ë¡œìš°ëª¨ì…˜ íŒì •
+    //½½·Î¿ì¸ğ¼Ç ÆÇÁ¤
     void OnSlowbox(Collider2D other)
     {
 
@@ -164,28 +174,28 @@ public class PlayerMove : MonoBehaviour
             Time.timeScale = 1f;
     }
 
-    //ì ì—ê²Œ ë¶€ë”ªí˜”ì„ ë•Œ
+    //Àû¿¡°Ô ºÎµúÇûÀ» ¶§
     void OnDamaged(Vector2 targetPos)
     {
         //6=PlayerDamaged
         gameObject.layer = 6;
 
-        //ë¬´ì  ìƒíƒœì¼ ë•Œ í‹°ê°€ ë‚˜ë„ë¡ ì•ŒíŒŒ ê°’ì„ ë‚®ì¶°ì¤Œ
+        //¹«Àû »óÅÂÀÏ ¶§ Æ¼°¡ ³ªµµ·Ï ¾ËÆÄ °ªÀ» ³·ÃçÁÜ
         spRenderer.color = new Color(1, 1, 1, 0.7f);
 
-        //í”Œë ˆì´ì–´ í¬ì§€ì…˜ê³¼ enemy í¬ì§€ì…˜ì˜ ì°¨ë¥¼ ì´ìš©í•´ì„œ í”Œë ˆì´ì–´ê°€ íŠ•ê²¨ì ¸ ë‚˜ê°ˆ ë°©í–¥ ê³„ì‚°
+        //ÇÃ·¹ÀÌ¾î Æ÷Áö¼Ç°ú enemy Æ÷Áö¼ÇÀÇ Â÷¸¦ ÀÌ¿ëÇØ¼­ ÇÃ·¹ÀÌ¾î°¡ Æ¨°ÜÁ® ³ª°¥ ¹æÇâ °è»ê
         //if ((transform.position.x - targetPos.x) > 0) damDirc = -1;
         //else damDirc = -1;
 
-        //ìœ„ ê³„ì‚°ìœ¼ë¡œ ë‚˜ì˜¨ ë°©í–¥ìœ¼ë¡œ í”Œë ˆì´ì–´ì—ê²Œ í˜ì„ ê°€í•¨
+        //À§ °è»êÀ¸·Î ³ª¿Â ¹æÇâÀ¸·Î ÇÃ·¹ÀÌ¾î¿¡°Ô ÈûÀ» °¡ÇÔ
         //rigid.AddForce(new Vector2(damDirc, 0f) * 40f, ForceMode2D.Impulse);
 
         anim.SetTrigger("doDamaged");
 
-        //1ì´ˆê°„ ë¬´ì ìƒíƒœ
+        //1ÃÊ°£ ¹«Àû»óÅÂ
         Invoke("OffDamaged", 1f);
 
-        for (int i = imgHealths.Length - 1; i >= 0; i--)
+        for (int i = imgHealths.Length - 5; i >= 0; i--)
         {
             if (imgHealths[i].fillAmount != 0)
             {
@@ -208,7 +218,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    //ë¬´ì  íŒì •
+    //¹«Àû ÆÇÁ¤
     void OffDamaged()
     {
         gameObject.layer = 0;
