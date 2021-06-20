@@ -13,6 +13,12 @@ public class SceneChanger : MonoBehaviour
         LoadingSceneController.LoadingInstance.LoadScene(sceneName);
     }
 
+    public void ChangeSceneWithNotLoad()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+
     public void CheckButtonClick()
     {
         Debug.Log("확인");
