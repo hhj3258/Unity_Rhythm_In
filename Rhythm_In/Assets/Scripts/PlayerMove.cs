@@ -62,28 +62,29 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (gameOver) // 게임오버 시 -> imageHealth 관련
+        if (gameOver && moveSpeed != 0) // 게임오버 시 -> imageHealth 관련
         {
-            Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
-            bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
-            spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
-            if (spGO.color.a >= 0.8) 
-                btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DieAnim") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            {
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
+                bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
+                spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
+                if (spGO.color.a >= 0.8)
+                    btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+            }
+            moveSpeed = Mathf.Lerp(moveSpeed, 0, 0.04f);
         }
-
 
         anim.SetBool(IsRun, true);
 
         nowTime += Time.deltaTime;
 
-
         if ((int)nowTime > tempTime)
         {
             tempTime = (int)nowTime;
-            Debug.Log("nowTime: " + (int)nowTime);
-            Debug.Log("pos: " + transform.position);
+           // Debug.Log("nowTime: " + (int)nowTime);
+            //Debug.Log("pos: " + transform.position);
         }
-
 
         //공격
         if (im.attack && Time.realtimeSinceStartup - attackDelayedTime >= attackDelay)
@@ -91,10 +92,6 @@ public class PlayerMove : MonoBehaviour
             attackDelayedTime = Time.realtimeSinceStartup;
             anim.SetTrigger("doAttack1");
             swordSound.Play();
-            //if (HitboxChecker.IsEnemy)
-            //{
-            //    Attack(HitboxChecker.HitCol);
-            //}
         }
 
         transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
@@ -108,8 +105,6 @@ public class PlayerMove : MonoBehaviour
         {
             moveSpeed = 15;
         }
-
-        //rigid.velocity = new Vector2(moveSpeed * Time.fixedDeltaTime, 0);
 
         //점프 & 더블 점프
         if (im.jump && isDoubleJump < 2)
@@ -127,6 +122,7 @@ public class PlayerMove : MonoBehaviour
             isDoubleJump++;
         }
     }
+
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -204,6 +200,7 @@ public class PlayerMove : MonoBehaviour
                 if (imgHealths[0].fillAmount == 0)
                 {
                     gameOver = true;
+                    anim.SetTrigger("doDie");
                     Debug.Log("GameOver");
                 }
                 break;

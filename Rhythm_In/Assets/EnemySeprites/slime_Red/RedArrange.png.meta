@@ -1,0 +1,1320 @@
+fileFormatVersion: 2
+guid: f796339cdda6a714eb3e97a4f3f2d00a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1232919276391097930
+    second: RedArrange_0
+  - first:
+      213: -6496513440371139385
+    second: RedArrange_1
+  - first:
+      213: -9026124032438924060
+    second: RedArrange_2
+  - first:
+      213: -4385520182694373449
+    second: RedArrange_3
+  - first:
+      213: 2992641237337944565
+    second: RedArrange_4
+  - first:
+      213: -2274848582371939682
+    second: RedArrange_5
+  - first:
+      213: 1555907746413147313
+    second: RedArrange_6
+  - first:
+      213: 46319678358951045
+    second: RedArrange_7
+  - first:
+      213: 3723917251947905705
+    second: RedArrange_8
+  - first:
+      213: -5311727112683605295
+    second: RedArrange_9
+  - first:
+      213: 1358662345078612799
+    second: RedArrange_10
+  - first:
+      213: -8546858477790263402
+    second: RedArrange_11
+  - first:
+      213: -4676753224005431534
+    second: RedArrange_12
+  - first:
+      213: -8510754126633089101
+    second: RedArrange_13
+  - first:
+      213: 3103790506105109577
+    second: RedArrange_14
+  - first:
+      213: -5286727362853696399
+    second: RedArrange_15
+  - first:
+      213: -2419789971168321392
+    second: RedArrange_16
+  - first:
+      213: -488868417503641095
+    second: RedArrange_17
+  - first:
+      213: 6175799443566851797
+    second: RedArrange_18
+  - first:
+      213: -2970049081505832760
+    second: RedArrange_19
+  - first:
+      213: -6913346711106396971
+    second: RedArrange_20
+  - first:
+      213: 8668574759443118501
+    second: RedArrange_21
+  - first:
+      213: -7339065093687362167
+    second: RedArrange_22
+  - first:
+      213: -3812475808170598918
+    second: RedArrange_23
+  - first:
+      213: 1796057345529126259
+    second: RedArrange_24
+  - first:
+      213: 4466988277936849859
+    second: RedArrange_25
+  - first:
+      213: 126183018625359111
+    second: RedArrange_26
+  - first:
+      213: -8033739591139058749
+    second: RedArrange_27
+  - first:
+      213: -8756872255043051565
+    second: RedArrange_28
+  - first:
+      213: 4874325397149370179
+    second: RedArrange_29
+  - first:
+      213: -8549233820642251878
+    second: RedArrange_30
+  - first:
+      213: -4955478134499246144
+    second: RedArrange_31
+  - first:
+      213: -8758480048415204001
+    second: RedArrange_32
+  - first:
+      213: 7292047024603640868
+    second: RedArrange_33
+  - first:
+      213: -6007191108045015551
+    second: RedArrange_34
+  - first:
+      213: 1842858327223255468
+    second: RedArrange_35
+  - first:
+      213: 185256943337489063
+    second: RedArrange_36
+  - first:
+      213: 1280663002217859537
+    second: RedArrange_37
+  - first:
+      213: -4693119338465173098
+    second: RedArrange_38
+  - first:
+      213: -7823827367596225783
+    second: RedArrange_39
+  - first:
+      213: 5051216081322121477
+    second: RedArrange_40
+  - first:
+      213: 8075327427133879855
+    second: RedArrange_41
+  - first:
+      213: 2006258056050753672
+    second: RedArrange_42
+  - first:
+      213: 9152303125205206037
+    second: RedArrange_43
+  - first:
+      213: 27326251003348977
+    second: RedArrange_44
+  - first:
+      213: 4214383483688179224
+    second: RedArrange_45
+  - first:
+      213: -6092501156729054762
+    second: RedArrange_46
+  - first:
+      213: -7172737703362639508
+    second: RedArrange_47
+  - first:
+      213: -6725953968338963280
+    second: RedArrange_48
+  - first:
+      213: -5888332292807702800
+    second: RedArrange_49
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RedArrange_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a46e502bc853c1110800000000000000
+      internalID: 1232919276391097930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc902c227fb7d5a0800000000000000
+      internalID: -6496513440371139385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec8cd3d304ccb280800000000000000
+      internalID: -9026124032438924060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7123b11a08323c0800000000000000
+      internalID: -4385520182694373449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1b6b3895ff78920800000000000000
+      internalID: 2992641237337944565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a6be9544d1e60e0800000000000000
+      internalID: -2274848582371939682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4fb301ad1b79510800000000000000
+      internalID: 1555907746413147313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58412b6808f84a000800000000000000
+      internalID: 46319678358951045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2cd4fa2030ea330800000000000000
+      internalID: 3723917251947905705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 149
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2bea07554f846b0800000000000000
+      internalID: -5311727112683605295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f332c105430fad210800000000000000
+      internalID: 1358662345078612799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69786c56f75736980800000000000000
+      internalID: -8546858477790263402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f4ef4a8b5d81fb0800000000000000
+      internalID: -4676753224005431534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b74857b63ab3e980800000000000000
+      internalID: -8510754126633089101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cff9d4501e21b20800000000000000
+      internalID: 3103790506105109577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c84c84975c1a6b0800000000000000
+      internalID: -5286727362853696399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090a57187dd2b6ed0800000000000000
+      internalID: -2419789971168321392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1c9c0b3c03739f0800000000000000
+      internalID: -488868417503641095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d67bd58fd8d4b550800000000000000
+      internalID: 6175799443566851797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 117
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c0ae5ba81448c6d0800000000000000
+      internalID: -2970049081505832760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc53637bcbde00a0800000000000000
+      internalID: -6913346711106396971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a9368dc0d6fc4870800000000000000
+      internalID: 8668574759443118501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98dbb4b6e27662a90800000000000000
+      internalID: -7339065093687362167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd983ba37d571bc0800000000000000
+      internalID: -3812475808170598918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d9e7cc3a0ece810800000000000000
+      internalID: 1796057345529126259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c38242fb2eedfd30800000000000000
+      internalID: 4466988277936849859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70dd9d179ca40c100800000000000000
+      internalID: 126183018625359111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb1a2c086c628090800000000000000
+      internalID: -8033739591139058749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df5fa67417597680800000000000000
+      internalID: -8756872255043051565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 85
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347c0c89f1515a340800000000000000
+      internalID: 4874325397149370179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9becdac2250b5980800000000000000
+      internalID: -8549233820642251878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cff4f454ea9a3bb0800000000000000
+      internalID: -4955478134499246144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d9dd5ecc0a37680800000000000000
+      internalID: -8758480048415204001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424b1fa422e823560800000000000000
+      internalID: 7292047024603640868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1067713c38b22aca0800000000000000
+      internalID: -6007191108045015551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1438d72e5239910800000000000000
+      internalID: 1842858327223255468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a24ecb553a229200800000000000000
+      internalID: 185256943337489063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d94e2c1734d5c110800000000000000
+      internalID: 1280663002217859537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691644ea3d0bedeb0800000000000000
+      internalID: -4693119338465173098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 53
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b827a267e2c6390800000000000000
+      internalID: -7823827367596225783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50912f27346891640800000000000000
+      internalID: 5051216081322121477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26b8439283511070800000000000000
+      internalID: 8075327427133879855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_42
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880cba68219a7db10800000000000000
+      internalID: 2006258056050753672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_43
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 514cd8e8333830f70800000000000000
+      internalID: 9152303125205206037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_44
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7091c9415116000800000000000000
+      internalID: 27326251003348977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816d18c137f7c7a30800000000000000
+      internalID: 4214383483688179224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d912873a76137ba0800000000000000
+      internalID: -6092501156729054762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_47
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69c404cf01557c90800000000000000
+      internalID: -7172737703362639508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b4f68d508c98a2a0800000000000000
+      internalID: -6725953968338963280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedArrange_49
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 21
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f64cb73af0784ea0800000000000000
+      internalID: -5888332292807702800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -19,7 +19,7 @@ public class RhythmBar : MonoBehaviour
         gm = GameManager.Instance;
         //offset = 60f / gm.Bpm1 / 2f;    //ex) bpm=60이라면 0.5초 딜레이
 
-        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset * 60f/gm.Bpm1);
+        slider.DOValue(1, 60f / gm.Bpm1).SetEase(Ease.InOutFlash).SetLoops(-1, LoopType.Yoyo).SetDelay(gm.offset * 60f/gm.Bpm1);
     }
 
     private float nowTime = 0;
@@ -50,6 +50,7 @@ public class RhythmBar : MonoBehaviour
         if (im.attack && slider.normalizedValue > 0.4f && slider.normalizedValue < 0.6f)
         {
             slider.handleRect.GetComponent<Image>().color = Color.red;
+            Debug.Log("///////////////////중간임");
         }
         else
         {

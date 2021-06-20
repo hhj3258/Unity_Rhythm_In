@@ -11,7 +11,10 @@ public class HitboxChecker : MonoBehaviour
     private bool isEnemy = false;
     private Collider2D hitCol;
 
-    private bool isPerfect=false;
+    private int judge = -1;
+        //perfect
+        //good
+        //bad
 
     public TextMeshProUGUI txtTest;
 
@@ -50,13 +53,18 @@ public class HitboxChecker : MonoBehaviour
         if (Mathf.Abs(other.transform.position.x - transform.position.x) <= 0.5f)
         {
             //Debug.Log(other.transform.position.x - transform.position.x);
-            isPerfect = true;
+            judge = 0;
             txtTest.text = "Perfect!";
+        }
+        else if (Mathf.Abs(other.transform.position.x - transform.position.x) <= 0.8f)
+        {
+            judge = 1;
+            txtTest.text = "Good";
         }
         else
         {
-            isPerfect = false;
-            txtTest.text = "";
+            judge = 2;
+            txtTest.text = "bad";
         }
     }
 
