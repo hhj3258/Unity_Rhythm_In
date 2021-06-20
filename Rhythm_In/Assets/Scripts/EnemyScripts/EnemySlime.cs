@@ -22,6 +22,9 @@ public class EnemySlime : EnemyController
         {
             health -= 1;
 
+            JudgeMent(50);
+
+            Debug.Log("HitboxChecker.judge: " + HitboxChecker.judge);
             if (health == 0)
             {
                 Attacked();

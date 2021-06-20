@@ -24,7 +24,7 @@ public class CameraMove : MonoBehaviour
     }
     void Move()
     {
-        transform.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y * 0.2f + yPos, -10f);
+        transform.position = new Vector3(player.transform.position.x + xPos, player.transform.position.y * 0.2f + yPos, -30f);
     }
     void Move_Event()
     {

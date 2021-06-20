@@ -207,6 +207,7 @@ public class PlayerMove : MonoBehaviour
                 {
                     gameOver = true;
                     anim.SetTrigger("doDie");
+                    anim.SetBool("isDie", true);
                     Debug.Log("GameOver");
                 }
                 break;

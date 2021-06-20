@@ -36,12 +36,12 @@ public class EnemyCreator : MonoBehaviour
             if (index == 1)
             {
                 tempTime = (int)curTime + 1;
-                Debug.Log("슬라임 생성");
+                //Debug.Log("슬라임 생성");
             }
             else
             {
                 tempTime = (int)curTime;
-                Debug.Log("에너미 생성");
+                //Debug.Log("에너미 생성");
             }
 
         }
@@ -56,7 +56,7 @@ public class EnemyCreator : MonoBehaviour
 
         enemyAppear = new Vector2(PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
             enemys[rand].transform.position.y);
-        Debug.Log("에너미 X좌표: "+enemyAppear);
+        //Debug.Log("에너미 X좌표: "+enemyAppear);
         Instantiate(enemys[rand], enemyAppear, Quaternion.identity);
 
         return rand;

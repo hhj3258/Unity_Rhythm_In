@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using DG.Tweening;
+using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
     protected GameObject player;
@@ -14,8 +16,11 @@ public class EnemyController : MonoBehaviour
 
     protected CameraMove mainCam;
 
+    protected GameObject txtJudge;
+
     protected virtual void Start()
     {
+        txtJudge = GameObject.Find("txtJudge");
         player = GameObject.FindGameObjectWithTag("Player");
         hitboxChecker = player.GetComponentInChildren<HitboxChecker>();
         im = player.GetComponent<InputManager>();
@@ -41,5 +46,24 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Destroy(transform.gameObject);
+    }
+
+    public void JudgeMent(int myScore)
+    {
+        if (HitboxChecker.judge == 0)
+        {
+            txtJudge.GetComponent<TextMeshProUGUI>().text = "Perfect";
+
+            gm.score += myScore+50;
+        }
+        //else if (HitboxChecker.judge == 1)
+        //{
+        //    txtJudge.GetComponent<TextMeshProUGUI>().text = "Good";
+        //}
+        else
+        {
+            txtJudge.GetComponent<TextMeshProUGUI>().text = "Bad";
+            gm.score += myScore;
+        }
     }
 }

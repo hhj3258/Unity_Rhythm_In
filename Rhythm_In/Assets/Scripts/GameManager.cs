@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     //싱글톤 사용을 위한 게임매니저 static 변수 선언
     public static GameManager _instance;
 
-    private Image healthBar;    //healthBar 이미지가 현재 없음.
-
     // 이미 게임매니저가 static으로 선언된 클래스이기 때문에 health변수는 static으로 선언할 필요 없음.
     // health는 플레이어의 체력이고, 이는 곧 게임에 하나만 존재하면 되므로 GameManager가 관리하도록 함
     private float health;
@@ -19,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public float offset;
 
-    //[SerializeField] private GameObject player;
+    public int score;
 
     public static GameManager Instance
     {
@@ -57,10 +55,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        healthBar = GetComponent<Image>();
         health = 3;
-
-        
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
@@ -68,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("score:" + score);
         //if(!player) player = GameObject.FindGameObjectWithTag("Player");
         //Debug.Log(player);
         //수정바람-현준
@@ -88,9 +84,4 @@ public class GameManager : MonoBehaviour
         set { bpm1 = value; }
     }
 
-    //public GameObject Player
-    //{
-    //    get { return player; }
-    //    set { player = value; }
-    //}
 }

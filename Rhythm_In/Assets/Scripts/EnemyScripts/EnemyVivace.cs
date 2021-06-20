@@ -29,8 +29,8 @@ public class EnemyVivace : EnemyController
                 Attacked();
                 mainCam.CameraAttackMove();
             }
-                
 
+            JudgeMent(70);
         }
     }
 

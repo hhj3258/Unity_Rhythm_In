@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class EnemyBet : EnemyController
 {
@@ -30,12 +31,16 @@ public class EnemyBet : EnemyController
                 }
 
                 fireBall.transform.GetComponent<Animator>().SetTrigger("doAttach");
+
+                JudgeMent(80);
             }
 
             if(hitboxChecker.HitCol.transform == transform.GetChild(0))
             {
                 Parrying();
                 mainCam.CameraAttackMove();
+
+                JudgeMent(80);
             }
 
         }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class HitboxChecker : MonoBehaviour
 {
@@ -10,13 +11,11 @@ public class HitboxChecker : MonoBehaviour
     //공격 로직 판정에 필요한 콜라이더 trigger 정보를 PlayerMove에 전달함.
     private bool isEnemy = false;
     private Collider2D hitCol;
-
-    private int judge = -1;
-        //perfect
-        //good
-        //bad
-
+    public static int judge = -1;
     public TextMeshProUGUI txtTest;
+
+    public GameObject[] imgJudge;
+    public InputManager im;
 
     public bool IsEnemy
     {
@@ -49,25 +48,44 @@ public class HitboxChecker : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        
-        if (Mathf.Abs(other.transform.position.x - transform.position.x) <= 0.5f)
+        if (!other.name.Equals("SearchBox"))
         {
-            //Debug.Log(other.transform.position.x - transform.position.x);
-            judge = 0;
-            txtTest.text = "Perfect!";
+            Debug.Log(other.name);
+
+            if (Mathf.Abs(other.transform.position.x - transform.position.x) <= 0.6f)
+            {
+                //Debug.Log(other.transform.position.x - transform.position.x);
+                judge = 0;
+                if (im.attack)
+                {
+                    imgJudge[0].SetActive(true);
+                    imgJudge[0].transform.DOScale(1.5f, 0.2f).SetEase(Ease.OutBack).SetLoops(2, LoopType.Yoyo);
+                    Invoke("OffJudge", 0.5f);
+                }
+
+            }
+            else
+            {
+                judge = 2;
+                if (im.attack)
+                {
+
+                    imgJudge[1].SetActive(true);
+                    imgJudge[1].transform.DOScale(1.5f, 0.2f).SetEase(Ease.OutBack).SetLoops(2, LoopType.Yoyo);
+                    Invoke("OffJudge", 0.5f);
+                }
+
+                //txtTest.text = "bad";
+            }
         }
-        else if (Mathf.Abs(other.transform.position.x - transform.position.x) <= 0.8f)
-        {
-            judge = 1;
-            txtTest.text = "Good";
-        }
-        else
-        {
-            judge = 2;
-            txtTest.text = "bad";
-        }
+
     }
 
+    void OffJudge()
+    {
+        for(int i=0;i<imgJudge.Length;i++)
+            imgJudge[i].SetActive(false);
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreateMap : MonoBehaviour
 {
-    [SerializeField] private GameObject Maps;
+    [SerializeField] private GameObject[] Maps;
     [SerializeField] private GameObject grid;
 
     [SerializeField] private GameObject player;
@@ -42,9 +42,10 @@ public class CreateMap : MonoBehaviour
             createdMapCnt++;
 
             //맵 생성 포인트를 현재 플레이어의 포지션.X +5 로 함 
-            Vector3 point = new Vector3(player.transform.position.x + 5f, 0f, 0f);
+            Vector3 point = new Vector3(player.transform.position.x + 38f, 0f, 0f);
             //타일맵을 Grid 오브젝트의 자식으로 생성
-            Instantiate(Maps, point, Quaternion.identity).transform.parent = grid.transform;
+            Instantiate(Maps[0], point, Quaternion.identity).transform.parent = grid.transform;
+            Instantiate(Maps[1], point, Quaternion.identity).transform.parent = grid.transform;
         }
     }
 
