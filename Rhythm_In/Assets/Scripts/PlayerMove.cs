@@ -73,13 +73,22 @@ public class PlayerMove : MonoBehaviour
                 Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
                 GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
                 bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
-                spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
-                if (spGO.color.a >= 0.8)
-                    btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+
+                spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.006f)); // 게임오버 이미지 출력 -> 알파 값 조정
+                if (spGO.color.a >= 0.9)
+                {
+                    GameObject.Find("GameOver_Menu").GetComponent<SpriteRenderer>().color = 
+                        new Color(1,1,1,Mathf.Lerp(GameObject.Find("GameOver_Menu").GetComponent<SpriteRenderer>().color.a,1,0.03f));
+                    if (GameObject.Find("GameOver_Menu").GetComponent<SpriteRenderer>().color.a > 0.8f)
+                    {
+                        Time.timeScale = 0;
+                        btn.SetActive(true); // 이미지 나타나면 버튼 활성화
+                    }
+
+                }
+
             }
             moveSpeed = Mathf.Lerp(moveSpeed, 0, 0.04f);
-            
-
         }
 
         anim.SetBool(IsRun, true);
