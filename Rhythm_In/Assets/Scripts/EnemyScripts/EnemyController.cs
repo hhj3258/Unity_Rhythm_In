@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void Start()
     {
-        txtJudge = GameObject.Find("txtJudge");
+        //txtJudge = GameObject.Find("txtJudge");
         player = GameObject.FindGameObjectWithTag("Player");
         hitboxChecker = player.GetComponentInChildren<HitboxChecker>();
         im = player.GetComponent<InputManager>();
@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
     {
         if (HitboxChecker.judge == 0)
         {
-            txtJudge.GetComponent<TextMeshProUGUI>().text = "Perfect";
+            //txtJudge.GetComponent<TextMeshProUGUI>().text = "Perfect";
 
             gm.score += myScore+50;
         }
@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         //}
         else
         {
-            txtJudge.GetComponent<TextMeshProUGUI>().text = "Bad";
+            //txtJudge.GetComponent<TextMeshProUGUI>().text = "Bad";
             gm.score += myScore;
         }
     }

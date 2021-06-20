@@ -15,8 +15,12 @@ public class StageEnd : MonoBehaviour
 
     TextMeshProUGUI txt;
 
+    private GameManager gm;
+    private string strRank;
+
     void Start()
     {
+        gm = GameManager.Instance;
         bgmlength = bgm.clip.length;
         Debug.Log("브금 길이: " + bgmlength);
     }
@@ -25,14 +29,53 @@ public class StageEnd : MonoBehaviour
         bgmlength -= Time.deltaTime;
             if (bgmlength <= 0)
         {
-            //txt.text = "Grade : "; // 여기에 점수 스크립트
+            ScoreRank();
+            //txt.text = "Grade : "+; // 여기에 점수 스크립트
             ScoreUI.SetActive(true);
             bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f);
             Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.1f);
             Btn.SetActive(true);
-            GameObject.Find("Grade").GetComponent<TextMeshPro>().text = "Grade : ㅁ";
+            GameObject.Find("Grade").GetComponent<TextMeshPro>().text = "Grade : "+strRank;
         }
-        //sc.ChangeScene();
+    }
 
+    void ScoreRank()
+    {
+        if(gm.score < 50000)
+        {
+            strRank = "S+";
+        }
+        else if (gm.score < 20000)
+        {
+            strRank = "S";
+        }
+        else if (gm.score < 19000)
+        {
+            strRank = "A+";
+        }
+        else if (gm.score < 18000)
+        {
+            strRank = "A";
+        }
+        else if (gm.score < 16000)
+        {
+            strRank = "B+";
+        }
+        else if (gm.score < 14000)
+        {
+            strRank = "B";
+        }
+        else if (gm.score < 12000)
+        {
+            strRank = "C";
+        }
+        else if (gm.score < 10000)
+        {
+            strRank = "D";
+        }
+        else if (gm.score < 8000)
+        {
+            strRank = "F";
+        }
     }
 }

@@ -35,6 +35,8 @@ public class PlayerMove : MonoBehaviour
     Animator anim;
     SpriteRenderer spGO;
 
+    public GameObject canvasGameOver;
+    public GameObject backPanel;
 
     //애니메이션 변수 id
     private static readonly int IsJumping = Animator.StringToHash("isJumping");
@@ -63,7 +65,7 @@ public class PlayerMove : MonoBehaviour
 
     private float nowTime = 0;
     private int tempTime = 0;
-
+    Color alphaColor;
     void Update()
     {
         if (gameOver && moveSpeed != 0) // 게임오버 시 -> imageHealth 관련
@@ -71,11 +73,13 @@ public class PlayerMove : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DieAnim") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
                 Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
-                GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
+                canvasGameOver.SetActive(true);
                 bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
 
                 spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.006f)); // 게임오버 이미지 출력 -> 알파 값 조정
-                if (spGO.color.a >= 0.9)
+                alphaColor.a = Mathf.Lerp(alphaColor.a, 0.7f, 0.006f);
+                backPanel.GetComponent<Image>().color = alphaColor;
+                if (spGO.color.a >= 0.5)
                 {
                     GameObject.Find("GameOver_Menu").GetComponent<SpriteRenderer>().color = 
                         new Color(1,1,1,Mathf.Lerp(GameObject.Find("GameOver_Menu").GetComponent<SpriteRenderer>().color.a,1,0.03f));
