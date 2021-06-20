@@ -64,6 +64,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (gameOver) // 게임오버 시 -> imageHealth 관련
         {
+            GameObject.Find("Canvas").transform.Find("GameOver").gameObject.SetActive(true);
             Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.04f); // timeScale 천천히 0으로
             bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f); // bgm 천천히 0으로
             spGO.color = new Color(1, 1, 1, Mathf.Lerp(spGO.color.a, 1, 0.012f)); // 게임오버 이미지 출력 -> 알파 값 조정
