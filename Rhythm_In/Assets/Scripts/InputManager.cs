@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
         right = Input.GetKey(KeyCode.RightArrow);
         interact = Input.GetKeyDown(KeyCode.LeftControl);
 
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //if (Input.GetKeyDown(KeyCode.R))
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

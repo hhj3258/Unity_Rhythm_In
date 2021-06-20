@@ -10,14 +10,14 @@ public class StageEnd : MonoBehaviour
     [SerializeField] private SceneChanger sc;
     [SerializeField] private AudioSource bgm;
     [SerializeField] private GameObject ScoreUI;
-    [SerializeField] private GameObject Btn;
+    //[SerializeField] private GameObject Btn;
     float bgmlength;
 
     TextMeshProUGUI txt;
 
     private GameManager gm;
     private string strRank;
-
+    public GameObject grade;
     void Start()
     {
         gm = GameManager.Instance;
@@ -34,46 +34,46 @@ public class StageEnd : MonoBehaviour
             ScoreUI.SetActive(true);
             bgm.volume = Mathf.Lerp(bgm.volume, 0, 0.01f);
             Time.timeScale = Mathf.Lerp(Time.timeScale, 0, 0.1f);
-            Btn.SetActive(true);
-            GameObject.Find("Grade").GetComponent<TextMeshPro>().text = "Grade : "+strRank;
+            //Btn.SetActive(true);
+            grade.GetComponent<TextMeshPro>().text = "Grade : "+strRank;
         }
     }
 
     void ScoreRank()
     {
-        if(gm.score < 50000)
+        if (gm.score > 20000)
         {
             strRank = "S+";
         }
-        else if (gm.score < 20000)
+        else if (gm.score > 19000)
         {
             strRank = "S";
         }
-        else if (gm.score < 19000)
+        else if (gm.score > 18000)
         {
             strRank = "A+";
         }
-        else if (gm.score < 18000)
+        else if (gm.score > 16000)
         {
             strRank = "A";
         }
-        else if (gm.score < 16000)
+        else if (gm.score > 14000)
         {
             strRank = "B+";
         }
-        else if (gm.score < 14000)
+        else if (gm.score > 12000)
         {
             strRank = "B";
         }
-        else if (gm.score < 12000)
+        else if (gm.score > 10000)
         {
             strRank = "C";
         }
-        else if (gm.score < 10000)
+        else if (gm.score > 8000)
         {
             strRank = "D";
         }
-        else if (gm.score < 8000)
+        else
         {
             strRank = "F";
         }

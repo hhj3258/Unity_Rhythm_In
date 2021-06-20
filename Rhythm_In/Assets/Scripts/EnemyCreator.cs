@@ -54,8 +54,8 @@ public class EnemyCreator : MonoBehaviour
     {
         int rand = Random.Range(0, 3);
 
-        enemyAppear = new Vector2(PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
-            enemys[rand].transform.position.y);
+        enemyAppear = new Vector3(PlayerMove.MoveSpeed * ((int)curTime + createdEnemyCnt) + enemys[rand].transform.position.x + enemyOffset,
+            enemys[rand].transform.position.y,20f);
         //Debug.Log("¿¡³Ê¹Ì XÁÂÇ¥: "+enemyAppear);
         Instantiate(enemys[rand], enemyAppear, Quaternion.identity);
 

@@ -10,13 +10,13 @@ public class Pause : MonoBehaviour
 {
     public InputManager im;
     [SerializeField] private AudioSource bgm;
-    [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject[] pauseUI;
     private bool isPause;
     private float time;
     public GameObject[] spriteCnt;
     private bool isReturning;
     bool isButtonClicked;
-   
+    public string sceneName;
 
     public AudioSource cntSound;
     int pastTime=3;
@@ -38,12 +38,20 @@ public class Pause : MonoBehaviour
             isButtonClicked = false;
             if (isPause == false)
             {
-                pauseUI.SetActive(true);
+                for(int i = 0; i < pauseUI.Length; i++)
+                {
+                    pauseUI[i].SetActive(true);
+                }
+
                 isPause = true;
             }
             else
             {
-                pauseUI.SetActive(false);
+                for (int i = 0; i < pauseUI.Length; i++)
+                {
+                    pauseUI[i].SetActive(false);
+                }
+
                 isPause = false;
                 pastTime = 3;
                 time = 3;
@@ -118,7 +126,7 @@ public class Pause : MonoBehaviour
 
     public void Button_Restart()
     {
-        LoadingSceneController.LoadingInstance.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Button_Resume()
