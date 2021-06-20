@@ -89,8 +89,6 @@ public class PlayerMove : MonoBehaviour
 
             }
             moveSpeed = Mathf.Lerp(moveSpeed, 0, 0.04f);
-            
-
         }
 
         anim.SetBool(IsRun, true);
